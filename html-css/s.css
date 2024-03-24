@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #F5F5F5;
+}
+
+header {
+    background-color: #F5F5F5;
+    color: #F5F5F5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo-btn {
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+
+    /* Установите фоновое изображение */
+    background-image: url('Кад ры.svg');
+    /* Убедитесь, что фоновое изображение не повторяется */
+    background-repeat: no-repeat;
+    /* Установите размер фонового изображения */
+    background-size: contain;
+    /* Установите цвет фона, который будет виден, если изображение не загрузится */
+    background-color: transparent;
+    /* Установите текст кнопки */
+    color: #000;
+    /* Добавьте другие стили, если необходимо */
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.logo-btn-cl {
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+
+    /* Установите фоновое изображение */
+    background-image: url('Кад ры2.svg');
+    /* Убедитесь, что фоновое изображение не повторяется */
+    background-repeat: no-repeat;
+    /* Установите размер фонового изображения */
+    background-size: contain;
+    /* Установите цвет фона, который будет виден, если изображение не загрузится */
+    background-color: transparent;
+    /* Установите текст кнопки */
+    color: #000;
+    /* Добавьте другие стили, если необходимо */
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.user {
+    display: flex;
+    /* Активируем Flexbox */
+    flex-direction: row;
+    /* Располагаем элементы горизонтально */
+    justify-content: flex-start;
+    /* Выравниваем элементы по левому краю */
+    align-items: center;
+    /* Выравниваем элементы по центру по вертикали */
+    flex-wrap: wrap;
+    /* Позволяет элементам переноситься на новую строку, если не хватает места */
+    gap: 20px;
+    /* Добавляем пространство между элементами */
+}
+
+.profile-img {
+    width: 100px;
+    /* Устанавливаем ширину */
+    height: 100px;
+    /* Устанавливаем высоту */
+    border-radius: 50%;
+    /* Делаем изображение круглым */
+    object-fit: cover;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contacts {
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #F5F5F5;
+    color: #0e0b0b;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+@media only screen and (min-width: 600px) {
+    .profile-info {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -100px;
+    /* Скрываем меню за левой границей экрана */
+    width: 50px;
+    height: 100%;
+    background-color: rgba(120, 88, 224, 1);
+    color: rgba(120, 88, 224, 1);
+    padding: 20px;
+    transition: left 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    /* Анимация выезжания */
+}
+
+.side-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.side-menu.open {
+    left: 0;
+    /* Показываем меню, выезжая его на экран */
+}
