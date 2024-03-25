@@ -4,75 +4,65 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color: #F5F5F5;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
     background-color: #F5F5F5;
-    color: #F5F5F5;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 10px 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.logo-btn {
-    width: 50px;
-    height: 50px;
-    background-position: center;
-    border: none;
-    cursor: pointer;
-
-    /* Установите фоновое изображение */
-    background-image: url('Кад ры.svg');
-    /* Убедитесь, что фоновое изображение не повторяется */
-    background-repeat: no-repeat;
-    /* Установите размер фонового изображения */
-    background-size: contain;
-    /* Установите цвет фона, который будет виден, если изображение не загрузится */
-    background-color: transparent;
-    /* Установите текст кнопки */
-    color: #000;
-    /* Добавьте другие стили, если необходимо */
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 10px;
+h1,
+h2,
+h2,
+p,
+ul li {
+    font-family: Inter, Arial, sans-serif;
 }
 
+.logo-btn,
 .logo-btn-cl {
     width: 50px;
     height: 50px;
     background-position: center;
-    border: none;
     cursor: pointer;
-
-    /* Установите фоновое изображение */
-    background-image: url('Кад ры2.svg');
     /* Убедитесь, что фоновое изображение не повторяется */
     background-repeat: no-repeat;
     /* Установите размер фонового изображения */
     background-size: contain;
     /* Установите цвет фона, который будет виден, если изображение не загрузится */
     background-color: transparent;
-    /* Установите текст кнопки */
-    color: #000;
     /* Добавьте другие стили, если необходимо */
     border: none;
-    cursor: pointer;
     font-size: 16px;
     padding: 10px;
+    /* Установите фоновое изображение */
+    background-image: url('Кад ры.svg');
+}
+
+.logo-btn-cl {
+    /* Установите фоновое изображение */
+    background-image: url('Кад ры2.svg');
 }
 
 .container {
+    display: block;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    /* background-color: aqua; */
+    flex-grow: 1;
 }
 
 .profile-info {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    justify-content: space-between;
     gap: 10px;
     margin-top: 20px;
     align-items: center;
@@ -81,13 +71,13 @@ header {
 .user {
     display: flex;
     /* Активируем Flexbox */
+    flex-wrap: nowrap;
     flex-direction: row;
     /* Располагаем элементы горизонтально */
     justify-content: flex-start;
     /* Выравниваем элементы по левому краю */
     align-items: center;
     /* Выравниваем элементы по центру по вертикали */
-    flex-wrap: wrap;
     /* Позволяет элементам переноситься на новую строку, если не хватает места */
     gap: 20px;
     /* Добавляем пространство между элементами */
@@ -106,12 +96,44 @@ header {
 
 .contacts {
     margin-top: 20px;
-    display: flex;
+    min-width: 400px;
+    display: grid;
+    /* Делаем блок grid контейнером */
     justify-content: center;
-    /* Горизонтальное отцентрование */
+    /* Центрируем содержимое по горизонтали */
+    align-content: center;
+    /* Центрируем содержимое по вертикали */
+    height: 100px;
+    /* Устанавливаем высоту, чтобы увидеть эффект центрирования */
+}
+
+.contacts ul {
+    list-style-type: none;
+}
+
+.contacts ul li {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Горизонтальное центрирование */
     align-items: center;
-    /* Вертикальное отцентрование */
-    min-width: 100px;
+    /* Вертикальное центрирование */
+    gap: 20px;
+}
+
+.data {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* Добавляем пространство между элементами */
+    justify-content: center;
+    /* Горизонтальное центрирование */
+    align-items: center;
 }
 
 .side-menu {
@@ -152,6 +174,7 @@ footer {
     width: 100%;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    margin-top: auto;
 }
 
 @media only screen and (min-width: 600px) {
