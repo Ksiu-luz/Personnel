@@ -152,10 +152,11 @@ header {
 .projects,
 .skills,
 .experience {
-    background-color: #E4D5EE;
+    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.15));
     border-radius: 10px;
     margin-bottom: 10px;
     padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .projects,
@@ -181,15 +182,14 @@ header {
     position: fixed;
     top: 0;
     left: -100px;
-    /* Скрываем меню за левой границей экрана */
     width: 50px;
     height: 100%;
-    background-color: rgba(120, 88, 224, 1);
-    color: rgba(120, 88, 224, 1);
+    background: linear-gradient(to bottom, rgba(155, 131, 229, 1), rgba(183, 72, 195, 1));
+    filter: saturate(0.8);
+    color: #fff;
     padding: 20px;
     transition: left 0.3s ease;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    /* Анимация выезжания */
 }
 
 .side-menu a {
