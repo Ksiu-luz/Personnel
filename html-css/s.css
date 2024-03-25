@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Inter, Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,20 +10,24 @@ body {
     flex-direction: column;
 }
 
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
 header {
     background-color: #F5F5F5;
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-h1,
-h2,
-h2,
-p,
-ul li {
-    font-family: Inter, Arial, sans-serif;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .logo-btn,
@@ -54,10 +58,11 @@ ul li {
 .container {
     display: block;
     max-width: 1200px;
+    min-width: 60%;
     margin: 0 auto;
     padding: 20px;
-    /* background-color: aqua; */
     flex-grow: 1;
+    padding-top: 120px;
 }
 
 .profile-info {
@@ -107,33 +112,52 @@ ul li {
     /* Устанавливаем высоту, чтобы увидеть эффект центрирования */
 }
 
-.contacts ul {
-    list-style-type: none;
-}
-
-.contacts ul li {
-    margin-bottom: 15px;
-    font-weight: bold;
-}
-
 .info {
-    display: flex;
-    flex-wrap: wrap;
+    display: blok;
     justify-content: center;
     /* Горизонтальное центрирование */
     align-items: center;
     /* Вертикальное центрирование */
     gap: 20px;
+    /* padding: 20px; */
 }
 
 .data {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-wrap: nowrap;
+    gap: 10px;
     /* Добавляем пространство между элементами */
-    justify-content: center;
+    justify-content: space-between;
     /* Горизонтальное центрирование */
-    align-items: center;
+    align-items: start;
+}
+
+.projects,
+.skills,
+.experience {
+    background-color: #E4D5EE;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.projects,
+.skills {
+    /* Обеспечивает базовую ширину */
+    min-width: 200px;
+    /* Устанавливает минимальную ширину, чтобы предотвратить слишком маленькую ширину */
+    height: 100%;
+    min-height: 300px;
+    box-sizing: border-box;
+}
+
+.skills {
+    width: 35%;
+}
+
+.projects {
+    max-width: 75%;
+    min-width: 65%;
 }
 
 .side-menu {
@@ -148,7 +172,6 @@ ul li {
     padding: 20px;
     transition: left 0.3s ease;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
     /* Анимация выезжания */
 }
 
@@ -169,12 +192,12 @@ footer {
     color: #0e0b0b;
     text-align: center;
     padding: 10px 0;
-    position: absolute;
     bottom: 0;
     width: 100%;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
     margin-top: auto;
+    margin-bottom: auto;
+
 }
 
 @media only screen and (min-width: 600px) {
