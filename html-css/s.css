@@ -12,21 +12,27 @@ body {
 
 ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 ul li {
     margin-bottom: 15px;
     font-weight: bold;
     font-size: 120%;
+    font-style: normal;
 }
 
 h1,
-h2,
-h3 {
+h2 {
     margin-top: 0;
     /* Удаление верхнего отступа */
     margin-bottom: 0;
     /* Удаление нижнего отступа */
+}
+
+.chapter {
+    padding-bottom: 20px;
 }
 
 header {
@@ -65,7 +71,7 @@ header {
     background-image: url('Кад ры2.svg');
 }
 
-.container {
+main {
     display: block;
     max-width: 1200px;
     min-width: 60%;
@@ -126,6 +132,10 @@ header {
     gap: 10px;
 }
 
+.name h1 {
+    font-size: 200%;
+}
+
 .status-img {
     width: 30px;
     height: 30px;
@@ -143,6 +153,33 @@ header {
     /* Центрируем содержимое по вертикали */
     height: 100px;
     /* Устанавливаем высоту, чтобы увидеть эффект центрирования */
+}
+
+.contacts button {
+    width: 100%;
+    /* Делаем кнопку по ширине блока адрес */
+    padding: 10px 0;
+    /* Добавляем вертикальный отступ для кнопки */
+    background-color: #e4dee6;
+    ;
+    /* Прозрачный фон */
+    border: none;
+    /* Убираем границы */
+    border-radius: 10px;
+    color: #000;
+    font-family: Inter, Arial, sans-serif;
+    font-weight: bold;
+    /* Цвет текста */
+    cursor: pointer;
+    /* Изменяем курсор на указатель при наведении */
+    transition: background-color 0.3s ease;
+    /* Добавляем плавный переход цвета фона */
+}
+
+.contacts button:hover {
+    background-color: rgb(180, 126, 186);
+    transform: scale(1.05);
+    /* Добавляем легкий фон при наведении */
 }
 
 .info {
@@ -167,7 +204,7 @@ header {
 
 .projects,
 .skills,
-.experience {
+.additional {
     background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.15));
     border-radius: 10px;
     margin-bottom: 10px;
@@ -200,15 +237,25 @@ header {
     min-width: 65%;
 }
 
-.experience {
+.additional {
     display: flex;
     flex-direction: row;
     gap: 30px;
 }
 
-.exp,
+.experience,
 .personal {
     width: 50%;
+}
+
+.in-additional li,
+.in-additional p {
+    font-size: 120%;
+    font-style: normal;
+    font-weight: normal;
+    margin: 0;
+    padding: 0 0 20px;
+    line-height: 1.5;
 }
 
 .side-menu {

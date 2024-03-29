@@ -12,14 +12,29 @@
 <body>
     <header>
         <button id="menu" class="logo-btn"></button>
-        <div id="sideMenu" class="side-menu">
-            <button id="menuClose" class="logo-btn-cl"></button>
-            <a href="#">
-                <img src="home.svg" alt="home">
-            </a>
-            <a href="#">Ссылка 2</a>
-            <a href="#">Ссылка 3</a>
-        </div>
+        <nav id="sideMenu" class="side-menu">
+            <ul>
+                <li><button id="menuClose" class="logo-btn-cl"></button></li>
+                <li>
+                    <a href="#">
+                        <img src="home.svg" alt="home">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="анкеты.svg" alt="worksheet">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="настройки.svg" alt="settings">
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><img src="выход.svg" alt="exit"></a>
+                </li>
+            </ul>
+        </nav>
     </header>
     <script>
         document.getElementById('menu').addEventListener('click', function () {
@@ -29,9 +44,9 @@
             document.getElementById('sideMenu').classList.toggle('open');
         });
     </script>
-    <div class="container">
-        <div class="profile-info">
-            <div class="user">
+    <main>
+        <section class="profile-info">
+            <article class="user">
                 <img src="f35d91e09cb10c7d10371e0afde212fb.jpg" alt="Фото" class="profile-img">
                 <div>
                     <div class="name">
@@ -40,69 +55,69 @@
                     </div>
                     <p>ФТ-203</p>
                 </div>
-            </div>
-            <div class="contacts">
+            </article>
+            <address class="contacts">
                 <ul>
                     <li>Телеграм: @SuperBig</li>
                     <li>Github: SuperBig</li>
+                    <li><button>Связаться</button></li>
                 </ul>
-            </div>
-        </div>
-        <div class="info">
-            <div class="data">
-                <div class="projects">
-                    <h2>Проекты</h2>
-                    <div class="in-data">
-                        <ul>
-                            <li>Госуслуги</li>
-                            <li>READy</li>
-                            <li>Крестики-нолики</li>
-                            <li>Крестики-нолики</li>
-                            <li>Крестики-нолики</li>
-                            <li>Крестики-нолики</li>
-                            <li>Крестики-нолики</li>
-                            <li>Крестики-нолики</li>
-                            <li>Крестики-нолики</li>
-                            <li>Крестики-нолики</li>
-                            <li>Крестики-нолики</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="skills">
-                    <h2>Навыки</h2>
-                    <div class="in-data">
-                        <ul>
-                            <li>SQL</li>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>КПСС</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            </address>
+        </section>
+        <section class="info">
+            <article class="data">
+                <section class="projects">
+                    <h2 class="chapter">Проекты</h2>
+                    <ul class="in-data">
+                        <li>Госуслуги</li>
+                        <li>READy</li>
+                        <li>Крестики-нолики</li>
+                        <li>Крестики-нолики</li>
+                        <li>Крестики-нолики</li>
+                        <li>Крестики-нолики</li>
+                        <li>Крестики-нолики</li>
+                        <li>Крестики-нолики</li>
+                        <li>Крестики-нолики</li>
+                        <li>Крестики-нолики</li>
+                        <li>Крестики-нолики</li>
+                    </ul>
+                </section>
+                <section class="skills">
+                    <h2 class="chapter">Навыки</h2>
+                    <ul class="in-data">
+                        <li>SQL</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>КПСС</li>
+                    </ul>
+                </section>
+            </article>
 
-            <div class="experience">
-                <div class="exp">
-                    <h2>Опыт работы</h2>
-                    <p>Здесь можно добавить информацию о своем опыте работы.</p>
-                    <p>Здесь можно добавить информацию о своем опыте работы.</p>
-                    <p>Здесь можно добавить информацию о своем опыте работы.</p>
-                    <p>Здесь можно добавить информацию о своем опыте работы.</p>
-                    <p>Здесь можно добавить информацию о своем опыте работы.</p>
-                    <p>Здесь можно добавить информацию о своем опыте работы.</p>
-                    <p>Здесь можно добавить информацию о своем опыте работы.</p>
-                </div>
-                <div class="personal">
-                    <h2>О себе</h2>
-                    <p>Я дурачок</p>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id asperiores eum, velit debitis
-                        eligendi omnis odio. Quaerat, at ut! Culpa ipsum at quibusdam sunt reiciendis? Quae recusandae
-                        est porro? Voluptates!</p>
-                </div>
+            <article class="additional">
+                <section class="experience">
+                    <h2 class="chapter">Опыт работы</h2>
+                    <ul class="in-additional">
+                        <li>Здесь можно добавить информацию о своем опыте работы.</li>
+                        <li>Здесь можно добавить информацию о своем опыте работы.</li>
+                    </ul>
+                </section>
+                <section class="personal">
+                    <h2 class="chapter">О себе</h2>
+                    <div class="in-additional">
+                        <p>Я интроверт, и немного стеснительный, так что если вы хотите устраивать еженедельные созвоны
+                            по
+                            проекту, будьте готовы, что я не включу камеру.</p>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id asperiores eum, velit debitis
+                            eligendi omnis odio. Quaerat, at ut! Culpa ipsum at quibusdam sunt reiciendis? Quae
+                            recusandae
+                            est porro? Voluptates!</p>
+                    </div>
 
-            </div>
-        </div>
-    </div>
+                </section>
+
+            </article>
+        </section>
+    </main>
 
     <footer>
         <p>&copy; Год - Имя Фамилия</p>
