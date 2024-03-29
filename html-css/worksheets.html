@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личная страница</title>
+    <link rel="stylesheet" href="s.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <button id="menu" class="logo-btn"></button>
+        <nav id="sideMenu" class="side-menu">
+            <ul>
+                <li>
+                    <button id="menuClose" class="logo-btn-cl"></button>
+                </li>
+                <li>
+                    <a href="lk.html">
+                        <img src="home.svg" alt="home">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="анкеты.svg" alt="worksheet">
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="настройки.svg" alt="settings">
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><img src="выход.svg" alt="exit"></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        document.getElementById('menu').addEventListener('click', function () {
+            document.getElementById('sideMenu').classList.toggle('open');
+        });
+        document.getElementById('menuClose').addEventListener('click', function () {
+            document.getElementById('sideMenu').classList.toggle('open');
+        });
+    </script>
+    <main>
+
+    </main>
+
+    <footer>
+        <p>&copy; Год - Имя Фамилия</p>
+    </footer>
+
+</body>
+
+</html>

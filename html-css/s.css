@@ -1,3 +1,8 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
 body {
     font-family: Inter, Arial, sans-serif;
     margin: 0;
@@ -105,7 +110,7 @@ main {
     /* Добавляем пространство между элементами */
 }
 
-.user div p {
+.user-info p {
     margin: 3px;
     font-size: 120%;
 }
@@ -144,7 +149,7 @@ main {
 
 .contacts {
     margin-top: 20px;
-    min-width: 400px;
+    min-width: 30%;
     display: grid;
     /* Делаем блок grid контейнером */
     justify-content: center;
@@ -161,7 +166,6 @@ main {
     padding: 10px 0;
     /* Добавляем вертикальный отступ для кнопки */
     background-color: #e4dee6;
-    ;
     /* Прозрачный фон */
     border: none;
     /* Убираем границы */
@@ -215,7 +219,6 @@ main {
 .projects,
 .skills {
     /* Обеспечивает базовую ширину */
-    min-width: 200px;
     /* Устанавливает минимальную ширину, чтобы предотвратить слишком маленькую ширину */
     /* height: 100%; */
     height: 300px;
@@ -297,8 +300,86 @@ footer {
 
 }
 
-@media only screen and (min-width: 600px) {
+/* а теперь все для мобилок */
+
+@media only screen and (max-width: 700px) {
+
+    header {
+        flex-direction: column;
+        /* Изменяем направление flex на вертикальное */
+        padding: 5px 10px;
+        /* Уменьшаем отступы */
+    }
+
+    .logo-btn,
+    .logo-btn-cl {
+        width: 40px;
+        /* Уменьшаем размер кнопок */
+        height: 40px;
+        padding: 5px;
+    }
+
+    main {
+        padding: 10px;
+        /* Уменьшаем отступы */
+        padding-top: 60px;
+        /* Увеличиваем отступ сверху, чтобы учесть фиксированный header */
+    }
+
     .profile-info {
-        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+
+    .profile-info,
+    .user,
+    .contacts {
+        flex-direction: column;
+        /* Изменяем направление flex на вертикальное */
+    }
+
+
+    .user-info p {
+        text-align: center;
+    }
+
+    .contacts button {
+        padding: 5px 0;
+        /* Уменьшаем вертикальный отступ */
+    }
+
+    footer {
+        padding: 5px 0;
+        /* Уменьшаем отступы */
+    }
+
+    .data {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .projects,
+    .skills {
+        width: 100%;
+        max-width: none;
+        min-width: none;
+    }
+
+    .profile-img {
+        width: 80px;
+        /* Уменьшаем размер изображения */
+        height: 80px;
+    }
+
+    .status-img {
+        width: 20px;
+        /* Уменьшаем размер изображения */
+        height: 20px;
+    }
+
+    .user .user-info p,
+    .in-additional li,
+    .in-additional p {
+        font-size: 100%;
+        /* Уменьшаем размер шрифта */
     }
 }
