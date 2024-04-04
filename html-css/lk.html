@@ -14,28 +14,30 @@
         <button id="menu" class="logo-btn"></button>
         <nav id="sideMenu" class="side-menu">
             <ul>
-                <li>
+                <li class="btt">
                     <button id="menuClose" class="logo-btn-cl"></button>
                 </li>
-                <li>
+                <li class="lk">
                     <a href="#">
-                        <img src="home.svg" alt="home">
+                        <img src="home.svg" alt="home"><span>личный кабинет</span>
                     </a>
                 </li>
-                <li>
+                <li class="wsh">
                     <a href="worksheets.html">
-                        <img src="анкеты.svg" alt="worksheet">
+                        <img src="анкеты.svg" alt="worksheet"><span>анкеты</span>
                     </a>
                 </li>
             </ul>
             <ul>
-                <li>
+                <li class="sett">
                     <a href="#">
-                        <img src="настройки.svg" alt="settings">
+                        <img src="настройки.svg" alt="settings"><span>настройки</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#"><img src="выход.svg" alt="exit"></a>
+                <li class="ex">
+                    <a href="#">
+                        <img src="выход.svg" alt="exit"><span>выход</span>
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -47,6 +49,29 @@
         document.getElementById('menuClose').addEventListener('click', function () {
             document.getElementById('sideMenu').classList.toggle('open');
         });
+
+        // это для мобилок 
+        document.addEventListener('DOMContentLoaded', function () {
+            var sideMenu = document.getElementById('sideMenu');
+            var startX, endX;
+
+            document.addEventListener('touchstart', function (e) {
+                startX = e.touches[0].clientX;
+            });
+
+            document.addEventListener('touchend', function (e) {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                if (endX - startX > 50) { // Если свайп вправо
+                    sideMenu.classList.add('open');
+                } else if (startX - endX > 50) { // Если свайп влево
+                    sideMenu.classList.remove('open');
+                }
+            }
+        });
     </script>
     <main>
         <section class="profile-info">
@@ -55,7 +80,7 @@
                 <div class="user-info">
                     <div class="name">
                         <h1>Иванов Иван</h1>
-                        <img src="image 1081.svg" alt="Статус" class="status-img">
+                        <img src="image 1081.svg" alt="Статус" class="status-img" title="Не ищет команду">
                     </div>
                     <p>ФТ-203</p>
                 </div>

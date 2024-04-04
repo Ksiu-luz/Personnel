@@ -287,6 +287,10 @@ main {
     margin-bottom: 20px;
 }
 
+.side-menu ul li a span {
+    display: none;
+}
+
 footer {
     background-color: #F5F5F5;
     color: #0e0b0b;
@@ -302,21 +306,26 @@ footer {
 
 /* а теперь все для мобилок */
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 600px) {
 
     header {
         flex-direction: column;
         /* Изменяем направление flex на вертикальное */
         padding: 5px 10px;
         /* Уменьшаем отступы */
+        box-shadow: none;
+        background-color: transparent;
+        position: fixed;
+        width: 70px;
+        height: 70px;
+        bottom: 5px;
+        right: 5px;
+        top: auto;
     }
 
-    .logo-btn,
-    .logo-btn-cl {
-        width: 40px;
-        /* Уменьшаем размер кнопок */
-        height: 40px;
-        padding: 5px;
+    .logo-btn {
+        height: 60px;
+        width: 60px;
     }
 
     main {
@@ -344,7 +353,9 @@ footer {
 
     .contacts button {
         padding: 5px 0;
+        height: 40px;
         /* Уменьшаем вертикальный отступ */
+        font-size: 100%;
     }
 
     footer {
@@ -381,5 +392,75 @@ footer {
     .in-additional p {
         font-size: 100%;
         /* Уменьшаем размер шрифта */
+    }
+
+    .additional {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .experience,
+    .personal {
+        width: 100%;
+    }
+
+    .in-additional li,
+    .in-additional p {
+        font-size: 130%;
+    }
+
+    .profile-img {
+        width: 150px;
+        /* Устанавливаем ширину */
+        height: 150px;
+        /* Устанавливаем высоту */
+    }
+
+    .status-img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .side-menu {
+        left: -80%;
+        width: 60%;
+        height: 100%;
+        justify-content: flex-end;
+    }
+
+    .side-menu.open {
+        left: 0;
+        /* Показываем меню, выезжая его на экран */
+    }
+
+    .side-menu ul li a span {
+        display: inline;
+    }
+
+    .side-menu ul li a {
+        display: flex;
+        /* Делаем ссылки блочными элементами */
+        align-items: center;
+        width: 100%;
+        /* Заставляем их занимать всю ширину родительского элемента */
+        height: 100%;
+        /* Заставляем их занимать всю высоту родительского элемента */
+        text-decoration: none;
+        /* Убираем подчеркивание у ссылок */
+        color: inherit;
+        /* Наследуем цвет текста от родительского элемента */
+        padding: 10px;
+        /* Добавляем внутренний отступ для удобства нажатия */
+        gap: 15px;
+    }
+
+    .side-menu ul li a span {
+        font-family: Inter, Arial, sans-serif;
+        font-size: 120%;
+        color: #F5F5F5;
+    }
+
+    .side-menu ul .btt {
+        display: none;
     }
 }
