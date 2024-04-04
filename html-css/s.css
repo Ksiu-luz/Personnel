@@ -464,3 +464,10 @@ footer {
         display: none;
     }
 }
+
+@media only screen and (max-width: 280px) {
+    .side-menu {
+        left: -95%;
+        width: 80%;
+    }
+}
