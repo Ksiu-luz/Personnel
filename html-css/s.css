@@ -138,6 +138,8 @@ main {
 }
 
 .name h1 {
+    display: inline-block;
+    width: min-content;
     font-size: 200%;
 }
 
@@ -462,6 +464,11 @@ footer {
 
     .side-menu ul .btt {
         display: none;
+    }
+
+    .name h1 {
+        font-size: 200%;
+        text-align: center;
     }
 }
 
