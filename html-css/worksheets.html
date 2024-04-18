@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Личная страница</title>
-    <link rel="stylesheet" href="s.css">
+    <title>Анкеты</title>
+    <link rel="stylesheet" href="worksheets.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
@@ -74,6 +74,93 @@
         });
     </script>
     <main>
+        <!-- <div class="wolf-qoute">
+            <img src="КАДРЫ ЛЯЛЯЛЯ.png" alt="что-то умное">
+        </div> -->
+        
+        <article class="search">
+            <div class="custom-select">
+                <div class="selected-categories" id="selectedCategories"></div>
+                <div class="options-container" id="optionsContainer">
+                    <div class="option" data-value="category1">CSS</div>
+                    <div class="option" data-value="category2">HTML</div>
+                    <div class="option" data-value="category3">TypeScript</div>
+                    <div class="option" data-value="category4">TypeScript</div>
+                    <div class="option" data-value="category5">TypeScript</div>
+                    <div class="option" data-value="category6">TypeScript</div>
+                    <!-- Добавьте больше категорий по мере необходимости -->
+                </div>
+                <button class="search-button"></button>
+            </div>
+        </article>
+
+
+
+        <script>
+            document.querySelector('.custom-select').addEventListener('click', function (event) {
+                // Проверяем, что клик был не по .selected-categories и не по .search-button
+                if (!event.target.closest('.selected-categories') && !event.target.closest('.search-button')) {
+                    const optionsContainer = document.querySelector('.options-container');
+                    // Переключаем видимость .options-container
+                    if (optionsContainer.style.display === 'none') {
+                        optionsContainer.style.display = 'block';
+                    } else {
+                        optionsContainer.style.display = 'none';
+                    }
+                }
+            });
+        
+            document.getElementById('selectedCategories').addEventListener('click', function () {
+                document.getElementById('optionsContainer').style.display = 'block';
+            });
+        
+            document.getElementById('optionsContainer').addEventListener('click', function (event) {
+                if (event.target.classList.contains('option')) {
+                    const selectedCategories = document.getElementById('selectedCategories');
+                    const option = event.target;
+                    const categoryDiv = document.createElement('div');
+                    categoryDiv.classList.add('category');
+                    categoryDiv.textContent = option.textContent;
+                    categoryDiv.addEventListener('click', function () {
+                        this.remove();
+                        option.style.display = 'block'; // Показываем опцию в списке опций
+                    });
+                    selectedCategories.appendChild(categoryDiv);
+                    option.style.display = 'none'; // Скрываем выбранную опцию в списке опций
+                }
+            });
+        
+            // Скрываем список опций при клике вне его
+            window.addEventListener('click', function (event) {
+                if (!event.target.closest('.custom-select')) {
+                    document.getElementById('optionsContainer').style.display = 'none';
+                }
+            });
+        </script>
+        
+        <article class="results">
+            <section class="worksheet">
+                <section class="profile-info">
+                    <article class="user">
+                        <img src="f35d91e09cb10c7d10371e0afde212fb.jpg" alt="Фото" class="profile-img">
+                        <div class="user-info">
+                            <div class="name">
+                                <h1>Ингиборга Дапкунайте</h1>
+                                <img src="image 1081.svg" alt="Статус" class="status-img" title="Не ищет команду">
+                            </div>
+                            <p>ФТ-203</p>
+                        </div>
+                    </article>
+                    <address class="contacts">
+                        <ul>
+                            <li>Телеграм: @SuperBig</li>
+                            <li>Github: SuperBig</li>
+                            <li><button id="contact">Связаться</button></li>
+                        </ul>
+                    </address>
+                </section>
+            </section>
+        </article>
 
     </main>
 
