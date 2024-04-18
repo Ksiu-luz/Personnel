@@ -23,9 +23,19 @@
                 <label for="password">Пароль</label>
                 <input id="password" type="password" name="password" required>
             </div>
-            <button type="submit">Войти</button>
+            <button type="submit" id="entrance">Войти</button>
         </form>
     </div>
+
+
+
+    <script>
+        const entrance = document.getElementById('entrance');
+        let entranceClick = function() {
+            window.location.href='html-css/lk.html';
+        }
+        entrance.addEventListener('click', entranceClick);
+    </script>
 </body>
 
 </html>

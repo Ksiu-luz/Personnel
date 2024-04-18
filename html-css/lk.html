@@ -89,7 +89,7 @@
                 <ul>
                     <li>Телеграм: @SuperBig</li>
                     <li>Github: SuperBig</li>
-                    <li><button>Связаться</button></li>
+                    <li><button id="contact">Связаться</button></li>
                 </ul>
             </address>
         </section>
@@ -150,6 +150,14 @@
         <p>&copy; Год - Имя Фамилия</p>
     </footer>
 
+
+    <script>
+        const contact = document.getElementById('contact');
+        let contactClick = function() {
+            window.location.href='https://telegram.me/andrey_hov';
+        }
+        contact.addEventListener('click', contactClick);
+    </script>
 </body>
 
 </html>
