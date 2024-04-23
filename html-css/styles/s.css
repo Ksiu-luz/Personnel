@@ -385,12 +385,6 @@ footer {
         height: 80px;
     }
 
-    .status-img {
-        width: 20px;
-        /* Уменьшаем размер изображения */
-        height: 20px;
-    }
-
     .user .user-info p,
     .in-additional li,
     .in-additional p {

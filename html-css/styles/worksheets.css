@@ -105,16 +105,21 @@ main {
     /* Располагаем элементы горизонтально */
     justify-content: flex-start;
     /* Выравниваем элементы по левому краю */
-    align-items: center;
+    /* align-items: center; */
     /* Выравниваем элементы по центру по вертикали */
     /* Позволяет элементам переноситься на новую строку, если не хватает места */
     gap: 20px;
     /* Добавляем пространство между элементами */
 }
 
+.user-info {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
 .user-info p {
-    margin: 3px;
-    font-size: 120%;
+    margin-top: 8px;
 }
 
 .profile-img {
@@ -128,27 +133,16 @@ main {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.name {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: center;
-    /* Центрируем содержимое по горизонтали */
-    align-items: center;
-    /* Центрируем содержимое по вертикали */
-    gap: 10px;
-}
-
-.name h1 {
+h1 {
     display: inline-block;
-    width: min-content;
-    font-size: 200%;
+    font-size: 150%;
 }
 
 .status-img {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     object-fit: cover;
+    padding: 0 20px;
 }
 
 .contacts {
@@ -211,7 +205,6 @@ main {
 }
 
 .projects,
-.skills,
 .additional {
     background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.15));
     border-radius: 10px;
@@ -220,8 +213,7 @@ main {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.projects,
-.skills {
+.projects {
     /* Обеспечивает базовую ширину */
     /* Устанавливает минимальную ширину, чтобы предотвратить слишком маленькую ширину */
     /* height: 100%; */
@@ -235,9 +227,6 @@ main {
     height: 200px;
 }
 
-.skills {
-    width: 35%;
-}
 
 .projects {
     max-width: 75%;
@@ -335,6 +324,32 @@ footer {
     width: 70%;
 }
 
+.select-status {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    min-height: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.24);
+    width: 30%;
+    font-size: 120%;
+    font-family: Inter, Arial, sans-serif;
+    height: 100%;
+    border: none; /* Удаляем стандартную границу */
+}
+
+.select-status option {
+    padding: 5px; /* Добавляем отступ */
+    border: none;
+    cursor: pointer; /* Изменяем курсор на указатель */
+}
+
+.select-status:focus {
+    outline: none; /* Удаляем стандартный контур */
+    border: none; 
+}
 
 .selected-categories {
     border: none;
@@ -437,6 +452,7 @@ footer {
     margin-bottom: 10px;
     box-sizing: border-box;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    padding: 0 20px;
 }
 
 .results{
@@ -444,6 +460,26 @@ footer {
     flex-direction: column;
     width: 100%;
     gap: 10px;
+    box-sizing: border-box;
+    padding: 0 40px;
+    padding-top: 50px;
+}
+
+.skills {
+    display: flex;
+    height: 30px;
+    gap: 5px;
+}
+
+.skill {
+    display: flex;
+    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.35), rgba(161, 3, 175, 0.35));
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+    font-weight: bold;
 }
 
 
@@ -482,16 +518,14 @@ footer {
         width: 100%;
     }
 
+    .user {
+        align-items: center;
+    }
     .profile-info,
     .user,
     .contacts {
         flex-direction: column;
         /* Изменяем направление flex на вертикальное */
-    }
-
-
-    .user-info p {
-        text-align: center;
     }
 
     .contacts button {
@@ -512,7 +546,6 @@ footer {
     }
 
     .projects,
-    .skills,
     .worksheet {
         width: 100%;
         max-width: none;
@@ -525,10 +558,10 @@ footer {
         height: 80px;
     }
 
-    .status-img {
-        width: 20px;
-        /* Уменьшаем размер изображения */
-        height: 20px;
+    .user-info{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .user .user-info p,
@@ -608,9 +641,13 @@ footer {
         display: none;
     }
 
-    .name h1 {
-        font-size: 200%;
+    h1 {
+        font-size: 150%;
         text-align: center;
+    }
+
+    .results{
+        padding: 0;
     }
 }
 

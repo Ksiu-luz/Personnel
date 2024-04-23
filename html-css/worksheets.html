@@ -93,23 +93,38 @@
                 </div>
                 <button class="search-button"></button>
             </div>
+            <select class="select-status">
+                <option class="d" value="1">Ищет команду</option>
+                <option value="2">Не ищет команду</option>
+                <option value="3">Состоит в команде</option>
+            </select>
         </article>
 
 
         <script>
+
             document.addEventListener('DOMContentLoaded', function () {
-                document.querySelector('.selected-categories .search-input').focus();
+                // Получаем элементы
+                const customSelect = document.querySelector('.custom-select');
+                const selectStatus = document.querySelector('.select-status');
+
+                // Функция для обновления высоты selectStatus
+                function updateSelectHeight() {
+                    // Получаем высоту customSelect
+                    const customSelectHeight = customSelect.offsetHeight;
+                    // Устанавливаем высоту selectStatus равной высоте customSelect
+                    selectStatus.style.height = customSelectHeight + 'px';
+                }
+
+                // Вызываем функцию для первоначального установления высоты
+                updateSelectHeight();
+
+                // Добавляем обработчик события для изменения размера окна
+                window.addEventListener('resize', updateSelectHeight);
             });
 
             document.addEventListener('DOMContentLoaded', function () {
-                const searchInput = document.querySelector('.selected-categories .search-input');
-                searchInput.focus();
-
-                searchInput.addEventListener('blur', function () {
-                    setTimeout(() => {
-                        searchInput.focus();
-                    }, 0);
-                });
+                document.querySelector('.selected-categories .search-input').focus();
             });
 
             document.querySelector('.custom-select').addEventListener('click', function (event) {
@@ -152,49 +167,23 @@
                 }
             });
         </script>
-        
+
         <article class="results">
             <section class="worksheet">
                 <section class="profile-info">
                     <article class="user">
                         <img src="images/avatar.jpg" alt="Фото" class="profile-img">
                         <div class="user-info">
-                            <div class="name">
-                                <h1>Ингиборга Дапкунайте</h1>
-                                <img src="images/status/status1.svg" alt="Статус" class="status-img" title="Не ищет команду">
+                            <h1>Ингиборга Дапкунайте</h1>
+                            <p class="group">ФТ-203</p>
+                            <div class="skills">
+                                <div class="skill">HTML</div>
+                                <div class="skill">CSS</div>
                             </div>
-                            <p>ФТ-203</p>
                         </div>
                     </article>
-                    <address class="contacts">
-                        <ul>
-                            <li>Телеграм: @SuperBig</li>
-                            <li>Github: SuperBig</li>
-                            <li><button id="contact">Связаться</button></li>
-                        </ul>
-                    </address>
-                </section>
-            </section>
-
-            <section class="worksheet">
-                <section class="profile-info">
-                    <article class="user">
-                        <img src="images/avatar.jpg" alt="Фото" class="profile-img">
-                        <div class="user-info">
-                            <div class="name">
-                                <h1>Ингиборга Дапкунайте</h1>
-                                <img src="images/status/status1.svg" alt="Статус" class="status-img" title="Не ищет команду">
-                            </div>
-                            <p>ФТ-203</p>
-                        </div>
-                    </article>
-                    <address class="contacts">
-                        <ul>
-                            <li>Телеграм: @SuperBig</li>
-                            <li>Github: SuperBig</li>
-                            <li><button id="contact">Связаться</button></li>
-                        </ul>
-                    </address>
+                    <img src="images/status/status1.svg" alt="Статус" class="status-img"
+                                    title="Не ищет команду">
                 </section>
             </section>
         </article>
