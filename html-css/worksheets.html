@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Анкеты</title>
-    <link rel="stylesheet" href="worksheets.css">
+    <link rel="stylesheet" href="styles/worksheets.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
@@ -19,24 +19,24 @@
                 </li>
                 <li class="lk">
                     <a href="lk.html">
-                        <img src="home.svg" alt="home"><span>личный кабинет</span>
+                        <img src="images/home.svg" alt="home"><span>личный кабинет</span>
                     </a>
                 </li>
                 <li class="wsh">
                     <a href="#">
-                        <img src="анкеты.svg" alt="worksheet"><span>анкеты</span>
+                        <img src="images/анкеты.svg" alt="worksheet"><span>анкеты</span>
                     </a>
                 </li>
             </ul>
             <ul>
                 <li class="sett">
                     <a href="#">
-                        <img src="настройки.svg" alt="settings"><span>настройки</span>
+                        <img src="images/настройки.svg" alt="settings"><span>настройки</span>
                     </a>
                 </li>
                 <li class="ex">
                     <a href="#">
-                        <img src="выход.svg" alt="exit"><span>выход</span>
+                        <img src="images/выход.svg" alt="exit"><span>выход</span>
                     </a>
                 </li>
             </ul>
@@ -74,13 +74,15 @@
         });
     </script>
     <main>
-        <!-- <div class="wolf-qoute">
+        <div class="wolf-qoute">
             <img src="КАДРЫ ЛЯЛЯЛЯ.png" alt="что-то умное">
-        </div> -->
-        
+        </div>
+
         <article class="search">
             <div class="custom-select">
-                <div class="selected-categories" id="selectedCategories"></div>
+                <div class="selected-categories" id="selectedCategories">
+                    <input type="text" class="search-input">
+                </div>
                 <div class="options-container" id="optionsContainer">
                     <div class="option" data-value="category1">CSS</div>
                     <div class="option" data-value="category2">HTML</div>
@@ -88,15 +90,28 @@
                     <div class="option" data-value="category4">TypeScript</div>
                     <div class="option" data-value="category5">TypeScript</div>
                     <div class="option" data-value="category6">TypeScript</div>
-                    <!-- Добавьте больше категорий по мере необходимости -->
                 </div>
                 <button class="search-button"></button>
             </div>
         </article>
 
 
-
         <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.querySelector('.selected-categories .search-input').focus();
+            });
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const searchInput = document.querySelector('.selected-categories .search-input');
+                searchInput.focus();
+
+                searchInput.addEventListener('blur', function () {
+                    setTimeout(() => {
+                        searchInput.focus();
+                    }, 0);
+                });
+            });
+
             document.querySelector('.custom-select').addEventListener('click', function (event) {
                 // Проверяем, что клик был не по .selected-categories и не по .search-button
                 if (!event.target.closest('.selected-categories') && !event.target.closest('.search-button')) {
@@ -109,11 +124,11 @@
                     }
                 }
             });
-        
+
             document.getElementById('selectedCategories').addEventListener('click', function () {
                 document.getElementById('optionsContainer').style.display = 'block';
             });
-        
+
             document.getElementById('optionsContainer').addEventListener('click', function (event) {
                 if (event.target.classList.contains('option')) {
                     const selectedCategories = document.getElementById('selectedCategories');
@@ -129,7 +144,7 @@
                     option.style.display = 'none'; // Скрываем выбранную опцию в списке опций
                 }
             });
-        
+
             // Скрываем список опций при клике вне его
             window.addEventListener('click', function (event) {
                 if (!event.target.closest('.custom-select')) {
@@ -142,11 +157,33 @@
             <section class="worksheet">
                 <section class="profile-info">
                     <article class="user">
-                        <img src="f35d91e09cb10c7d10371e0afde212fb.jpg" alt="Фото" class="profile-img">
+                        <img src="images/avatar.jpg" alt="Фото" class="profile-img">
                         <div class="user-info">
                             <div class="name">
                                 <h1>Ингиборга Дапкунайте</h1>
-                                <img src="image 1081.svg" alt="Статус" class="status-img" title="Не ищет команду">
+                                <img src="images/status/status1.svg" alt="Статус" class="status-img" title="Не ищет команду">
+                            </div>
+                            <p>ФТ-203</p>
+                        </div>
+                    </article>
+                    <address class="contacts">
+                        <ul>
+                            <li>Телеграм: @SuperBig</li>
+                            <li>Github: SuperBig</li>
+                            <li><button id="contact">Связаться</button></li>
+                        </ul>
+                    </address>
+                </section>
+            </section>
+
+            <section class="worksheet">
+                <section class="profile-info">
+                    <article class="user">
+                        <img src="images/avatar.jpg" alt="Фото" class="profile-img">
+                        <div class="user-info">
+                            <div class="name">
+                                <h1>Ингиборга Дапкунайте</h1>
+                                <img src="images/status/status1.svg" alt="Статус" class="status-img" title="Не ищет команду">
                             </div>
                             <p>ФТ-203</p>
                         </div>

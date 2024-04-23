@@ -69,12 +69,12 @@ header {
     font-size: 16px;
     padding: 10px;
     /* Установите фоновое изображение */
-    background-image: url('Кад ры.svg');
+    background-image: url('../images/logo.svg');
 }
 
 .logo-btn-cl {
     /* Установите фоновое изображение */
-    background-image: url('Кад ры2.svg');
+    background-image: url('../images/logo2.svg');
 }
 
 main {
@@ -342,6 +342,7 @@ footer {
     cursor: pointer;
     display: flex;
     flex-wrap: wrap;
+    flex-grow: 1;
 }
 
 .selected-categories .category {
@@ -365,7 +366,8 @@ footer {
     scrollbar-width: none;
     max-height: 100px;
     border-radius: 10px;
-
+    top: 100%; /* Позиционируем список категорий под .selected-categories */
+    left: 0; /* Выравниваем список категорий по левому краю .custom-select */
 }
 
 .option {
@@ -377,10 +379,25 @@ footer {
     background-color: #f1f1f1;
 }
 
-.search-button {
-    background-image: url('image\ 1060.svg');
+.search-input{
+    background-color: hsl(from color h s l);
+    flex-grow: 1; /* Добавляем flex-grow */
     border: none;
+    order: 1;
+}
 
+.search-input:focus {
+    outline: none; /* Удаляем стандартный контур */
+    box-shadow: none; /* Удаляем стандартное тенистое окружение */
+    border-color: transparent; /* Удаляем стандартный цвет границы */
+}
+
+.search-button {
+    background-image: url('../images/search.svg');
+    border: none;
+    flex-shrink: 0; /* Предотвращает сжатие кнопки */
+    flex-grow: 0; /* Предотвращает растяжение кнопки */
+    flex-basis: 30px; /* Задает базовый размер кнопки */
 
     width: 30px;
     height: 30px;
@@ -408,16 +425,16 @@ footer {
 }
 
 .wolf-qoute img {
+    width: 100%; /* Установите ширину изображения равной 100% */
+    height: auto; /* Установите высоту автоматически, чтобы сохранить пропорции */
     transform: scale(0.7);
 }
 
 .worksheet {
     width: 100%;
-    /* min-width: 500px; */
     background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.15));
     border-radius: 10px;
     margin-bottom: 10px;
-    /* padding: 20px; */
     box-sizing: border-box;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
 }
@@ -426,7 +443,7 @@ footer {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    gap: 10px;
 }
 
 
