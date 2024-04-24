@@ -36,10 +36,6 @@ h2 {
     /* Удаление нижнего отступа */
 }
 
-.chapter {
-    padding-bottom: 20px;
-}
-
 header {
     background-color: #F5F5F5;
     display: flex;
@@ -151,45 +147,6 @@ h1 {
     padding: 0 20px;
 }
 
-.contacts {
-    margin-top: 20px;
-    min-width: 30%;
-    display: grid;
-    /* Делаем блок grid контейнером */
-    justify-content: center;
-    /* Центрируем содержимое по горизонтали */
-    align-content: center;
-    /* Центрируем содержимое по вертикали */
-    height: 100px;
-    /* Устанавливаем высоту, чтобы увидеть эффект центрирования */
-}
-
-.contacts button {
-    width: 100%;
-    /* Делаем кнопку по ширине блока адрес */
-    padding: 10px 0;
-    /* Добавляем вертикальный отступ для кнопки */
-    background-color: #e4dee6;
-    /* Прозрачный фон */
-    border: none;
-    /* Убираем границы */
-    border-radius: 10px;
-    color: #000;
-    font-family: Inter, Arial, sans-serif;
-    font-weight: bold;
-    /* Цвет текста */
-    cursor: pointer;
-    /* Изменяем курсор на указатель при наведении */
-    transition: background-color 0.3s ease;
-    /* Добавляем плавный переход цвета фона */
-}
-
-.contacts button:hover {
-    background-color: rgb(180, 126, 186);
-    transform: scale(1.05);
-    /* Добавляем легкий фон при наведении */
-}
-
 .info {
     display: flex;
     flex-direction: column;
@@ -198,65 +155,10 @@ h1 {
     gap: 5px;
 }
 
-.data {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 10px;
-    /* Добавляем пространство между элементами */
-    justify-content: space-between;
-    /* Горизонтальное центрирование */
-    align-items: start;
-}
-
-.projects,
-.additional {
-    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.15));
-    border-radius: 10px;
-    margin-bottom: 10px;
-    padding: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.projects {
-    /* Обеспечивает базовую ширину */
-    /* Устанавливает минимальную ширину, чтобы предотвратить слишком маленькую ширину */
-    /* height: 100%; */
-    height: 300px;
-    box-sizing: border-box;
-}
-
-.in-data {
-    overflow: scroll;
-    scrollbar-width: none;
-    height: 200px;
-}
-
-
-.projects {
-    max-width: 75%;
-    min-width: 65%;
-}
-
-.additional {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-}
-
 .personal {
     width: 100%;
     padding: 0;
     margin: 0;
-}
-
-.in-additional li,
-.in-additional p {
-    font-size: 120%;
-    font-style: normal;
-    font-weight: normal;
-    margin: 0;
-    padding: 0 0 20px;
-    line-height: 1.5;
 }
 
 .side-menu {
@@ -541,24 +443,13 @@ footer {
         gap: 5px;
     }
 
-
-    
-
     .user {
         align-items: center;
     }
     .profile-info,
-    .user,
-    .contacts {
+    .user {
         flex-direction: column;
         /* Изменяем направление flex на вертикальное */
-    }
-
-    .contacts button {
-        padding: 5px 0;
-        height: 40px;
-        /* Уменьшаем вертикальный отступ */
-        font-size: 100%;
     }
 
     footer {
@@ -566,12 +457,6 @@ footer {
         /* Уменьшаем отступы */
     }
 
-    .data {
-        flex-wrap: wrap;
-        width: 100%;
-    }
-
-    .projects,
     .worksheet {
         width: 100%;
         max-width: none;
@@ -590,27 +475,14 @@ footer {
         align-items: center;
     }
 
-    .user .user-info p,
-    .in-additional li,
-    .in-additional p {
+    .user .user-info p {
         font-size: 100%;
         /* Уменьшаем размер шрифта */
-    }
-
-    .additional {
-        flex-direction: column;
-        gap: 10px;
     }
 
     .personal {
         width: 100%;
         text-align: center;
-    }
-
-
-    .in-additional li,
-    .in-additional p {
-        font-size: 130%;
     }
 
     .profile-img {
