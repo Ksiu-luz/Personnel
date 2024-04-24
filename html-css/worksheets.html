@@ -93,36 +93,24 @@
                 </div>
                 <button class="search-button"></button>
             </div>
-            <select class="select-status">
-                <option class="d" value="1">Ищет команду</option>
-                <option value="2">Не ищет команду</option>
-                <option value="3">Состоит в команде</option>
-            </select>
+            <div class="selects">
+                <select class="select-status">
+                    <option value="1">Ищет команду</option>
+                    <option value="2">Не ищет команду</option>
+                    <option value="3">Состоит в команде</option>
+                </select>
+                <select class="select-group">
+                    <option value="ФТ-201">ФТ-201</option>
+                    <option value="ФТ-202">ФЕ-202</option>
+                    <option value="ФТ-203">ФТ-203</option>
+                    <option value="ФТ-204">ФТ-204</option>
+                </select>
+            </div>
+
         </article>
 
 
         <script>
-
-            document.addEventListener('DOMContentLoaded', function () {
-                // Получаем элементы
-                const customSelect = document.querySelector('.custom-select');
-                const selectStatus = document.querySelector('.select-status');
-
-                // Функция для обновления высоты selectStatus
-                function updateSelectHeight() {
-                    // Получаем высоту customSelect
-                    const customSelectHeight = customSelect.offsetHeight;
-                    // Устанавливаем высоту selectStatus равной высоте customSelect
-                    selectStatus.style.height = customSelectHeight + 'px';
-                }
-
-                // Вызываем функцию для первоначального установления высоты
-                updateSelectHeight();
-
-                // Добавляем обработчик события для изменения размера окна
-                window.addEventListener('resize', updateSelectHeight);
-            });
-
             document.addEventListener('DOMContentLoaded', function () {
                 document.querySelector('.selected-categories .search-input').focus();
             });
@@ -171,19 +159,51 @@
         <article class="results">
             <section class="worksheet">
                 <section class="profile-info">
-                    <article class="user">
+                    <div class="block">
                         <img src="images/avatar.jpg" alt="Фото" class="profile-img">
-                        <div class="user-info">
-                            <h1>Ингиборга Дапкунайте</h1>
-                            <p class="group">ФТ-203</p>
-                            <div class="skills">
-                                <div class="skill">HTML</div>
-                                <div class="skill">CSS</div>
+                        <article class="user">
+                            <div class="info">
+                                <div class="user-info">
+                                    <h1>Ингиборга Дапкунайте</h1>
+                                    <p class="group">ФТ-203</p>
+                                    <div class="skills">
+                                        <div class="skill">HTML</div>
+                                        <div class="skill">CSS</div>
+                                    </div>
+                                </div>
+                                <p class="personal">
+                                    Я интроверт, и немного стеснительный, так что если вы хотите устраивать еженедельные
+                                    созвоны по проекту, будьте готовы, что я не включу камеру.
+                                </p>
                             </div>
-                        </div>
-                    </article>
-                    <img src="images/status/status1.svg" alt="Статус" class="status-img"
-                                    title="Не ищет команду">
+                        </article>
+                    </div>
+                    <img src="images/status/status1.svg" alt="Статус" class="status-img" title="Не ищет команду">
+                </section>
+            </section>
+
+            <section class="worksheet">
+                <section class="profile-info">
+                    <div class="block">
+                        <img src="images/avatar.jpg" alt="Фото" class="profile-img">
+                        <article class="user">
+                            <div class="info">
+                                <div class="user-info">
+                                    <h1>Пан Кихой</h1>
+                                    <p class="group">ФТ-201</p>
+                                    <div class="skills">
+                                        <div class="skill">С#</div>
+                                        <div class="skill">Python</div>
+                                        <div class="skill">Figma</div>
+                                    </div>
+                                </div>
+                                <p class="personal">
+                                    Я телец.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <img src="images/status/status1.svg" alt="Статус" class="status-img" title="Не ищет команду">
                 </section>
             </section>
         </article>
