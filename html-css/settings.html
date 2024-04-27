@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки</title>
+    <link rel="stylesheet" href="styles/settings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <button id="menu" class="logo-btn"></button>
+        <nav id="sideMenu" class="side-menu">
+            <ul>
+                <li class="btt">
+                    <button id="menuClose" class="logo-btn-cl"></button>
+                </li>
+                <li class="lk">
+                    <a href="lk.html">
+                        <img src="images/home.svg" alt="home"><span>личный кабинет</span>
+                    </a>
+                </li>
+                <li class="wsh">
+                    <a href="worksheets.html">
+                        <img src="images/анкеты.svg" alt="worksheet"><span>анкеты</span>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li class="sett">
+                    <a href="#">
+                        <img src="images/настройки.svg" alt="settings"><span>настройки</span>
+                    </a>
+                </li>
+                <li class="ex">
+                    <a href="#">
+                        <img src="images/выход.svg" alt="exit"><span>выход</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        document.getElementById('menu').addEventListener('click', function () {
+            document.getElementById('sideMenu').classList.toggle('open');
+        });
+        document.getElementById('menuClose').addEventListener('click', function () {
+            document.getElementById('sideMenu').classList.toggle('open');
+        });
+
+        // это для мобилок 
+        document.addEventListener('DOMContentLoaded', function () {
+            var sideMenu = document.getElementById('sideMenu');
+            var startX, endX;
+
+            document.addEventListener('touchstart', function (e) {
+                startX = e.touches[0].clientX;
+            });
+
+            document.addEventListener('touchend', function (e) {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                if (endX - startX > 50) { // Если свайп вправо
+                    sideMenu.classList.add('open');
+                } else if (startX - endX > 50) { // Если свайп влево
+                    sideMenu.classList.remove('open');
+                }
+            }
+        });
+    </script>
+
+    <article class="settings-menu">
+        <img src="images/settings.svg" alt="settings" class="settings-img">
+        <a href="#contacts-status" class="settings-point">главное</a>
+        <span class="settings-point">проекты</span>
+        <span class="settings-point">навыки</span>
+        <span class="settings-point">опыт работы</span>
+        <span class="settings-point">о себе</span>
+    </article>
+    <main>
+
+        <section class="contacts-status" id="contacts-status">
+            <section class="contacts">
+                <h3>Контакты</h3>
+                <div class="in-data">
+                    <form action="">
+                        <div class="input-group">
+                            <label for="email">Почта: </label>
+                            <input id="email" type="email" name="email">
+                        </div>
+                        <div class="input-group">
+                            <label for="telegram">Телеграм: </label>
+                            <input id="telegram" type="text" name="telegram">
+                        </div>
+                        <div class="input-group">
+                            <label for="github">Телеграм: </label>
+                            <input id="github" type="text" name="github">
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <section class="status">
+                <h3>Выбрать статус</h3>
+                <div class="in-data">
+                    <form action="">
+                        <label><input type="radio" name="stat" value="1" checked><img src="images/status/status2.svg"
+                                class="status-img" alt="status">Ищу команду</label>
+                        <label><input type="radio" name="stat" value="2"><img src="images/status/status2.svg"
+                                class="status-img" alt="status">Не ищу команду</label>
+                        <label><input type="radio" name="stat" value="3"><img src="images/status/status2.svg"
+                                class="status-img" alt="status">Состою в команде</label>
+                    </form>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Год - Имя Фамилия</p>
+    </footer>
+
+
+    <script>
+        const contact = document.getElementById('contact');
+        let contactClick = function () {
+            window.location.href = 'https://telegram.me/andrey_hov';
+        }
+        contact.addEventListener('click', contactClick);
+    </script>
+</body>
+
+</html>

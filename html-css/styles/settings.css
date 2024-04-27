@@ -1,0 +1,427 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: Inter, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #F5F5F5;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 120%;
+    font-style: normal;
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    /* Удаление верхнего отступа */
+    margin-bottom: 0;
+    /* Удаление нижнего отступа */
+}
+
+header {
+    background-color: #F5F5F5;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    /* display: none; */
+}
+
+.logo-btn,
+.logo-btn-cl {
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    cursor: pointer;
+    /* Убедитесь, что фоновое изображение не повторяется */
+    background-repeat: no-repeat;
+    /* Установите размер фонового изображения */
+    background-size: contain;
+    /* Установите цвет фона, который будет виден, если изображение не загрузится */
+    background-color: transparent;
+    /* Добавьте другие стили, если необходимо */
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+    /* Установите фоновое изображение */
+    background-image: url('../images/logo.svg');
+}
+
+.logo-btn-cl {
+    /* Установите фоновое изображение */
+    background-image: url('../images/logo2.svg');
+}
+
+main {
+    display: block;
+    max-width: 1200px;
+    min-width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    flex-grow: 1;
+    padding-top: 60px;
+    z-index: 0;
+}
+
+.profile-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+    align-items: center;
+    padding-bottom: 25px;
+}
+
+.profile-info .block {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.user {
+    display: flex;
+    /* Активируем Flexbox */
+    flex-wrap: nowrap;
+    flex-direction: row;
+    /* Располагаем элементы горизонтально */
+    justify-content: flex-start;
+    /* Выравниваем элементы по левому краю */
+    /* align-items: center; */
+    /* Выравниваем элементы по центру по вертикали */
+    /* Позволяет элементам переноситься на новую строку, если не хватает места */
+    gap: 20px;
+    /* Добавляем пространство между элементами */
+}
+
+.user-info {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.user-info p {
+    margin-top: 8px;
+}
+
+.profile-img {
+    width: 100px;
+    /* Устанавливаем ширину */
+    height: 100px;
+    /* Устанавливаем высоту */
+    border-radius: 50%;
+    /* Делаем изображение круглым */
+    object-fit: cover;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    display: inline-block;
+    font-size: 150%;
+}
+
+.status-img {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    padding: 0 20px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Горизонтальное центрирование */
+    gap: 5px;
+}
+
+.personal {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -100px;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(155, 131, 229, 1), rgba(183, 72, 195, 1));
+    filter: saturate(0.8);
+    color: #fff;
+    padding: 10px 15px;
+    transition: left 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.side-menu.open {
+    left: 0;
+    /* Показываем меню, выезжая его на экран */
+}
+
+.side-menu ul li {
+    margin-bottom: 20px;
+}
+
+.side-menu ul li a span {
+    display: none;
+}
+
+footer {
+    background-color: #F5F5F5;
+    color: #0e0b0b;
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+/* настройки */
+
+.settings-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    flex-wrap: wrap;
+    padding-top: 120px;
+}
+
+.settings-img {
+    height: 30px;
+}
+
+.settings-point {
+    font-size: larger;
+    padding: 0;
+    margin: 0;
+    color: #F04FC3;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.contacts-status {
+    display: flex;
+    gap: 40px;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.contacts, 
+.status {
+    display: flex;
+    flex-direction: column;
+}
+
+.contacts {
+    width: 45%;
+}
+
+.status {
+    width: 55%;
+}
+
+.in-data {
+    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.15));
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.in-data form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* а теперь все для мобилок */
+
+@media only screen and (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        /* Изменяем направление flex на вертикальное */
+        padding: 5px 10px;
+        /* Уменьшаем отступы */
+        box-shadow: none;
+        background-color: transparent;
+        position: fixed;
+        width: 70px;
+        height: 70px;
+        bottom: 5px;
+        right: 5px;
+        top: auto;
+    }
+
+    .logo-btn {
+        height: 60px;
+        width: 60px;
+    }
+
+    main {
+        padding: 10px;
+        /* Уменьшаем отступы */
+        padding-top: 60px;       
+        /* Увеличиваем отступ сверху, чтобы учесть фиксированный header */
+    }
+
+    .profile-info {
+        width: 100%;
+    }
+
+    .profile-info .block {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .user {
+        align-items: center;
+    }
+    .profile-info,
+    .user {
+        flex-direction: column;
+        /* Изменяем направление flex на вертикальное */
+    }
+
+    footer {
+        padding: 5px 0;
+        /* Уменьшаем отступы */
+    }
+
+    .worksheet {
+        width: 100%;
+        max-width: none;
+        min-width: none;
+    }
+
+    .profile-img {
+        width: 80px;
+        /* Уменьшаем размер изображения */
+        height: 80px;
+    }
+
+    .user-info{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .user .user-info p {
+        font-size: 100%;
+        /* Уменьшаем размер шрифта */
+    }
+
+    .personal {
+        width: 100%;
+        text-align: center;
+    }
+
+    .profile-img {
+        width: 150px;
+        /* Устанавливаем ширину */
+        height: 150px;
+        /* Устанавливаем высоту */
+    }
+
+    .status-img {
+        width: 15px;
+        height: 15px;
+    }
+
+    .side-menu {
+        left: -80%;
+        width: 60%;
+        height: 100%;
+        justify-content: flex-end;
+    }
+
+    .side-menu.open {
+        left: 0;
+        /* Показываем меню, выезжая его на экран */
+    }
+
+    .side-menu ul li a span {
+        display: inline;
+    }
+
+    .side-menu ul li a {
+        display: flex;
+        /* Делаем ссылки блочными элементами */
+        align-items: center;
+        width: 100%;
+        /* Заставляем их занимать всю ширину родительского элемента */
+        height: 100%;
+        /* Заставляем их занимать всю высоту родительского элемента */
+        text-decoration: none;
+        /* Убираем подчеркивание у ссылок */
+        color: inherit;
+        /* Наследуем цвет текста от родительского элемента */
+        padding: 10px;
+        /* Добавляем внутренний отступ для удобства нажатия */
+        gap: 15px;
+    }
+
+    .side-menu ul li a span {
+        font-family: Inter, Arial, sans-serif;
+        font-size: 120%;
+        color: #F5F5F5;
+    }
+
+    .side-menu ul .btt {
+        display: none;
+    }
+
+    h1 {
+        font-size: 150%;
+        text-align: center;
+    }
+
+    .results{
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .side-menu {
+        left: -95%;
+        width: 80%;
+    }
+}
