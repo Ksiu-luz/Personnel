@@ -75,12 +75,15 @@
     </script>
 
     <article class="settings-menu">
-        <img src="images/settings.svg" alt="settings" class="settings-img">
-        <a href="#contacts-status" class="settings-point">главное</a>
-        <span class="settings-point">проекты</span>
-        <span class="settings-point">навыки</span>
-        <span class="settings-point">опыт работы</span>
-        <span class="settings-point">о себе</span>
+        <!-- <img src="images/settings.svg" alt="settings" class="settings-img"> -->
+        <button class="settings-button" aria-label="settings">
+            <img src="images/settings.svg" alt="settings" class="settings-img">
+        </button>
+        <a href="#contacts-status" class="settings-point hidden">главное</a>
+        <a href="#projects" class="settings-point hidden">проекты</a>
+        <span class="settings-point hidden">навыки</span>
+        <span class="settings-point hidden">опыт работы</span>
+        <span class="settings-point hidden">о себе</span>
     </article>
     <main>
 
@@ -91,15 +94,15 @@
                     <form action="">
                         <div class="input-group">
                             <label for="email">Почта: </label>
-                            <input id="email" type="email" name="email">
+                            <input id="email" type="email" name="email" placeholder="Вставь ссылку">
                         </div>
                         <div class="input-group">
                             <label for="telegram">Телеграм: </label>
-                            <input id="telegram" type="text" name="telegram">
+                            <input id="telegram" type="text" name="telegram" placeholder="Вставь ссылку">
                         </div>
                         <div class="input-group">
-                            <label for="github">Телеграм: </label>
-                            <input id="github" type="text" name="github">
+                            <label for="github">GitHub: </label>
+                            <input id="github" type="text" name="github" placeholder="Вставь ссылку">
                         </div>
                     </form>
                 </div>
@@ -108,30 +111,51 @@
                 <h3>Выбрать статус</h3>
                 <div class="in-data">
                     <form action="">
-                        <label><input type="radio" name="stat" value="1" checked><img src="images/status/status2.svg"
+                        <label><input type="radio" name="stat" value="1" checked><img src="images/status/status1.svg"
                                 class="status-img" alt="status">Ищу команду</label>
                         <label><input type="radio" name="stat" value="2"><img src="images/status/status2.svg"
                                 class="status-img" alt="status">Не ищу команду</label>
-                        <label><input type="radio" name="stat" value="3"><img src="images/status/status2.svg"
+                        <label><input type="radio" name="stat" value="3"><img src="images/status/status3.svg"
                                 class="status-img" alt="status">Состою в команде</label>
                     </form>
                 </div>
             </section>
+        </section>
+        <section class="projects" id="projects">
+            <h3>Проекты</h3>
+            <div class="in-data">
+                <form action="">
+                    <div class="input-group">
+                        <label for="proj-name"><span>НАЗВАНИЕ </span></label>
+                        <input id="proj-name" type="text" name="proj-name">
+                    </div>
+                    <div class="input-group">
+                        <label for="proj-link"><span>ССЫЛКА </span></label>
+                        <input id="proj-link" type="text" name="proj-link">
+                    </div>
+                    <div class="input-group">
+                        <label for="role"><span>РОЛЬ </span></label>
+                        <input id="role" type="text" name="role">
+                    </div>
+                    <div class="input-group">
+                        <label for="description"><span>ОПИСАНИЕ </span></label>
+                        <input id="description" type="text" name="description">
+                    </div>
+                    <input type="submit" value="ДОБАВИТЬ" class="proj-submit-button">
+                </form>
+                <div class="projs">
+                    <div class="proj">
+                        
+                    </div>
+                </div>
+
+            </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; Год - Имя Фамилия</p>
     </footer>
-
-
-    <script>
-        const contact = document.getElementById('contact');
-        let contactClick = function () {
-            window.location.href = 'https://telegram.me/andrey_hov';
-        }
-        contact.addEventListener('click', contactClick);
-    </script>
 </body>
 
 </html>

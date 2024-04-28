@@ -126,17 +126,6 @@ main {
     margin-top: 8px;
 }
 
-.profile-img {
-    width: 100px;
-    /* Устанавливаем ширину */
-    height: 100px;
-    /* Устанавливаем высоту */
-    border-radius: 50%;
-    /* Делаем изображение круглым */
-    object-fit: cover;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
 h1 {
     display: inline-block;
     font-size: 150%;
@@ -213,7 +202,8 @@ footer {
     justify-content: space-around;
     align-items: end;
     flex-wrap: wrap;
-    padding-top: 120px;
+    padding: 120px 40px 0;
+    gap: 10px;
 }
 
 .settings-img {
@@ -227,6 +217,45 @@ footer {
     color: #F04FC3;
     font-weight: bolder;
     text-decoration: none;
+    padding: 0 10px;
+}
+
+.settings-button {
+    background: none;
+    color: none;
+    border: none;
+}
+
+@media only screen and (max-width: 470px) {
+    .settings-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+
+    }
+
+    .settings-point {
+        font-size: 180%;
+    }
+
+    .settings-button {
+        cursor: pointer;
+    }
+
+    .settings-point.hidden {
+        display: none;
+    }
+
+    .settings-button:focus+.settings-point.hidden,
+    .settings-button:focus~.settings-point.hidden {
+        display: block;
+    }
+
+    .settings-button:focus {
+        outline: none;
+    }
+
 }
 
 .contacts-status {
@@ -236,7 +265,7 @@ footer {
     width: 100%;
 }
 
-.contacts, 
+.contacts,
 .status {
     display: flex;
     flex-direction: column;
@@ -256,19 +285,120 @@ footer {
     margin-bottom: 10px;
     padding: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    height: 250px;
 }
 
 .input-group {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contacts .input-group {
+    align-items: center;
+}
+
+.input-group input {
+    border: none;
+    height: 25px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.input-group input:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-weight: bolder;
+    opacity: 1;
+    /* Firefox */
+    color: rgba(161, 3, 175, 0.322);
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    font-weight: bolder;
+    color: rgba(161, 3, 175, 0.322);
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    font-weight: bolder;
+    color: rgba(161, 3, 175, 0.322);
+}
+
+/* Стилизация подсказки для браузеров, поддерживающих псевдоэлемент ::placeholder */
+input::placeholder {
+    font-weight: bolder;
+    color: rgba(161, 3, 175, 0.322);
+}
+
+.input-group label {
+    font-weight: bolder;
 }
 
 .in-data form {
     display: flex;
     flex-direction: column;
+    gap: 30px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
+.contacts h3,
+.status h3,
+.projects h3 {
+    padding: 0 10px 10px;
+    font-size: 130%;
+}
+
+.status .in-data label {
+    font-weight: bolder;
+}
+
+.projects {
+    padding-top: 20px;
+}
+
+.projects .in-data {
+    height: auto;
+}
+
+.projects form {
+    width: 40%;
+}
+
+.projects input {
+    height: 30px;
+}
+
+.projects .input-group {
+    flex-direction: column;
+    gap: 5px;
+}
+
+.proj-submit-button {
+    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.25));
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    color: black; /* Белый текст */
+    width: 120px;
+    border: none; /* Убираем границу */
+    border-radius: 5px; /* Скругленные углы */
+    cursor: pointer; /* Изменяем курсор на указатель при наведении */
+    transition: background-color 0.3s ease; /* Анимация при наведении */
+    font-weight: bolder;
+    text-align: center;   
+}
+
+.proj-submit-button:hover {
+    background-color: rgba(161, 3, 175, 0.39); /* Изменяем фон при наведении */
+    box-shadow: none;
+}
 
 /* а теперь все для мобилок */
 
@@ -297,8 +427,9 @@ footer {
     main {
         padding: 10px;
         /* Уменьшаем отступы */
-        padding-top: 60px;       
+        padding-top: 30px;
         /* Увеличиваем отступ сверху, чтобы учесть фиксированный header */
+
     }
 
     .profile-info {
@@ -315,6 +446,7 @@ footer {
     .user {
         align-items: center;
     }
+
     .profile-info,
     .user {
         flex-direction: column;
@@ -332,13 +464,7 @@ footer {
         min-width: none;
     }
 
-    .profile-img {
-        width: 80px;
-        /* Уменьшаем размер изображения */
-        height: 80px;
-    }
-
-    .user-info{
+    .user-info {
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -352,13 +478,6 @@ footer {
     .personal {
         width: 100%;
         text-align: center;
-    }
-
-    .profile-img {
-        width: 150px;
-        /* Устанавливаем ширину */
-        height: 150px;
-        /* Устанавливаем высоту */
     }
 
     .status-img {
@@ -414,9 +533,70 @@ footer {
         text-align: center;
     }
 
-    .results{
+    .results {
         padding: 0;
     }
+
+    .settings-menu {
+        padding: 20px;
+    }
+
+    .contacts-status {
+        flex-direction: column;
+        gap: 20px;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    .contacts,
+    .status {
+        width: 100%;
+    }
+
+    .input-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .input-group input {
+        height: 30px;
+    }
+
+    .in-data {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .contacts .input-group {
+        align-items: start;
+    }
+
+    .contacts .input-group input{
+        width: 100%;
+    }
+
+    .status .in-data form {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .status .in-data form label {
+        font-size: 130%;
+    }
+
+    .status .in-data form label img {
+        height: 35px;
+        width: 35px;
+    }
+
+    .projects form {
+        width: 100%;
+    }
+
+
 }
 
 @media only screen and (max-width: 280px) {
