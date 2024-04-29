@@ -290,13 +290,10 @@ footer {
 
 .input-group {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-}
-
-.contacts .input-group {
-    align-items: center;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .input-group input {
@@ -444,13 +441,8 @@ input::placeholder {
     width: 40%;
 }
 
-.projects input {
+input {
     height: 30px;
-}
-
-.projects .input-group {
-    flex-direction: column;
-    gap: 5px;
 }
 
 .proj-submit-button {
