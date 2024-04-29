@@ -204,6 +204,7 @@ footer {
     flex-wrap: wrap;
     padding: 120px 40px 0;
     gap: 10px;
+    margin: 0 30px;
 }
 
 .settings-img {
@@ -224,38 +225,6 @@ footer {
     background: none;
     color: none;
     border: none;
-}
-
-@media only screen and (max-width: 470px) {
-    .settings-menu {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 20px;
-
-    }
-
-    .settings-point {
-        font-size: 180%;
-    }
-
-    .settings-button {
-        cursor: pointer;
-    }
-
-    .settings-point.hidden {
-        display: none;
-    }
-
-    .settings-button:focus+.settings-point.hidden,
-    .settings-button:focus~.settings-point.hidden {
-        display: block;
-    }
-
-    .settings-button:focus {
-        outline: none;
-    }
-
 }
 
 .contacts-status {
@@ -430,6 +399,7 @@ input::placeholder {
     font-family: Inter, Arial, sans-serif;
     font-size: medium;
     margin: 20px 0 10px;
+    cursor: pointer;
 }
 
 .proj-button:hover {
@@ -664,6 +634,35 @@ input {
 
     .projects .in-data {
         flex-direction: column;
+    }
+
+    .settings-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+
+    }
+
+    .settings-point {
+        font-size: 180%;
+    }
+
+    .settings-button {
+        cursor: pointer;
+    }
+
+    .settings-point.hidden {
+        display: none;
+    }
+
+    .settings-button:focus+.settings-point.hidden,
+    .settings-button:focus~.settings-point.hidden {
+        display: block;
+    }
+
+    .settings-button:focus {
+        outline: none;
     }
 
 
