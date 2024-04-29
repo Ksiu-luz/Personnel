@@ -212,7 +212,7 @@ footer {
 }
 
 .settings-point {
-    font-size: larger;
+    font-size: x-large;
     padding: 0;
     margin: 0;
     color: #F04FC3;
@@ -318,7 +318,10 @@ input::placeholder {
 
 .contacts h3,
 .status h3,
-.projects h3 {
+.projects h3,
+.skills h3,
+.experience h3,
+.about-me h3 {
     padding: 0 10px 10px;
     font-size: 130%;
 }
@@ -327,7 +330,10 @@ input::placeholder {
     font-weight: bolder;
 }
 
-.projects {
+.projects,
+.skills,
+.experience,
+.about-me {
     padding-top: 20px;
 }
 
@@ -433,6 +439,38 @@ input {
 .proj-submit-button:hover {
     background-color: rgba(161, 3, 175, 0.39); /* Изменяем фон при наведении */
     box-shadow: none;
+}
+
+.input-data {
+    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.15));
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    height: 250px;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: start;
+    outline: none;
+    resize: none;
+    font-size: 20px;
+    font-family: Inter, Arial, sans-serif;
+}
+
+.about-me .input-data {
+    height: 70px;
+    box-sizing: border-box;
+}
+
+.about-me .in-data {
+    height: auto;
+}
+
+.for-page, 
+.for-search {
+    margin: 0 10px;
+    padding-bottom: 10px;
 }
 
 /* а теперь все для мобилок */
@@ -601,6 +639,15 @@ input {
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+
+    .about-me .in-data {
+        justify-content: start;
+    }
+
+    .about-me .input-data {
+        padding: 5px;
+        height: 85px;
     }
 
     .contacts .input-group {
