@@ -367,6 +367,77 @@ input::placeholder {
 
 .projects .in-data {
     height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 45px;
+}
+
+.projects .projs {
+    width: 50%;  
+}
+
+.projs .in-projs {
+    overflow: scroll;
+    scrollbar-width: none;
+    height: 350px;
+}
+
+.projs .proj {
+    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.15));
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative; /* Это делает .proj контейнером для абсолютного позиционирования кнопки */
+    min-height: 100px;
+    flex-direction: column;
+}
+
+.proj .delete-proj {
+    background-image: url('../images/delete_proj.svg');
+    background-position: center;
+    cursor: pointer;
+    /* Убедитесь, что фоновое изображение не повторяется */
+    background-repeat: no-repeat;
+    /* Установите размер фонового изображения */
+    background-size: contain;
+    /* Установите цвет фона, который будет виден, если изображение не загрузится */
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    position: absolute; /* Абсолютное позиционирование кнопки относительно .proj */
+    top: 15px; /* Отступ от верхнего края контейнера */
+    right: 15px; /* Отступ от правого края контейнера */
+}
+
+.proj-role {
+    padding-bottom: 10px;
+    font-size: smaller;
+    font-weight: bolder;
+}
+
+.proj-descripton {
+    padding: 10px 0;
+    font-weight: bolder;
+}
+
+.proj-button {
+    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.25));
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 120px;
+    height: 35px;
+    font-family: Inter, Arial, sans-serif;
+    font-size: medium;
+    margin: 20px 0 10px;
+}
+
+.proj-button:hover {
+    background-color: rgba(161, 3, 175, 0.39); /* Изменяем фон при наведении */
+    box-shadow: none;
 }
 
 .projects form {
@@ -393,6 +464,8 @@ input::placeholder {
     transition: background-color 0.3s ease; /* Анимация при наведении */
     font-weight: bolder;
     text-align: center;   
+    font-size: medium;
+    font-family: Inter, Arial, sans-serif;
 }
 
 .proj-submit-button:hover {
@@ -592,8 +665,13 @@ input::placeholder {
         width: 35px;
     }
 
-    .projects form {
+    .projects form,
+    .projects .projs {
         width: 100%;
+    }
+
+    .projects .in-data {
+        flex-direction: column;
     }
 
 
