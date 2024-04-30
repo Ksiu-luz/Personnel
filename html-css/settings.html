@@ -81,9 +81,9 @@
         </button>
         <a href="#contacts-status" class="settings-point hidden">главное</a>
         <a href="#projects" class="settings-point hidden">проекты</a>
-        <span class="settings-point hidden">навыки</span>
-        <span class="settings-point hidden">опыт работы</span>
-        <span class="settings-point hidden">о себе</span>
+        <a href="#skills" class="settings-point hidden">навыки</a>
+        <a href="#experience" class="settings-point hidden">опыт работы</a>
+        <a href="#about-me" class="settings-point hidden">о себе</a>
     </article>
     <main>
 
@@ -141,16 +141,70 @@
                         <label for="description"><span>ОПИСАНИЕ </span></label>
                         <input id="description" type="text" name="description">
                     </div>
-                    <input type="submit" value="ДОБАВИТЬ" class="proj-submit-button">
+                    <input type="submit" value="добавить" class="proj-submit-button">
                 </form>
                 <div class="projs">
-                    <div class="proj">
-                        
+                    <h3>Добавленные проекты:</h3>
+                    <div class="in-projs">
+                        <div class="proj">
+                            <button class="delete-proj"></button>
+                            <h2 id="proj-name">Personnel</h2>
+                            <span id="proj-role" class="proj-role">test-engineer</span>
+                            <span id="proj-descripton" class="proj-descripton">Lorem ipsum, dolor sit amet consectetur
+                                adipisicing elit.
+                                Accusamus officiis quam perferendis commodi dolorum esse illo amet deleniti
+                                exercitationem incidunt!</span>
+                            <button class="proj-button">посмотреть</button>
+                        </div>
+                        <div class="proj">
+                            <button class="delete-proj"></button>
+                            <h2 id="proj-name">Personnel</h2>
+                            <span id="proj-role" class="proj-role">test-engineer</span>
+                            <span id="proj-descripton" class="proj-descripton">Lorem ipsum, dolor sit amet consectetur
+                                adipisicing elit.
+                                Accusamus officiis quam perferendis commodi dolorum esse illo amet deleniti
+                                exercitationem incidunt!</span>
+                            <button class="proj-button">посмотреть</button>
+                        </div>
                     </div>
+
                 </div>
 
             </div>
         </section>
+        <section class="skills" id="skills">
+            <h3>Навыки</h3>
+            <div class="in-data">
+
+            </div>
+        </section>
+        <section class="experience" id="experience">
+            <h3>Опыт работы</h3>
+            <form action="">
+                <textarea class="input-data" placeholder="Расскажи о своем опыте работы, если есть..."></textarea>
+            </form>
+        </section>
+        <section class="about-me" id="about-me">
+            <h3>О себе</h3>
+            <div class="in-data">
+                <div class="for-search">
+                    <h3>При поиске:</h3>
+                    <form action="">
+                        <textarea class="input-data"
+                            placeholder="Расскажи о том, какую хочешь роль в команде, какой любимый предмет..."></textarea>
+                    </form>
+
+                </div>
+                <div class="for-page">
+                    <h3>При поиске:</h3>
+                    <form action="">
+                        <textarea class="input-data" placeholder="Расскажи о своих хобби и увлечениях..."></textarea>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer>
