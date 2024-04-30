@@ -73,6 +73,7 @@
             }
         });
     </script>
+
     <main>
         <div class="wolf-qoute">
             <img src="КАДРЫ ЛЯЛЯЛЯ.png" alt="что-то умное">
@@ -81,15 +82,9 @@
         <form class="search">
             <div class="custom-select">
                 <div class="selected-categories" id="selectedCategories">
-                    <input type="text" class="search-input">
-                </div>
-                <div class="options-container" id="optionsContainer">
-                    <div class="option" data-value="category1">CSS</div>
-                    <div class="option" data-value="category2">HTML</div>
-                    <div class="option" data-value="category3">TypeScript</div>
-                    <div class="option" data-value="category4">TypeScript</div>
-                    <div class="option" data-value="category5">TypeScript</div>
-                    <div class="option" data-value="category6">TypeScript</div>
+                    <input onkeyup="searching(this.value)"  type="text" class="search-input">
+                    <div class="options-container" id="optionsContainer">
+                    </div>
                 </div>
                 <button class="search-button" type="submit"></button>
             </div>
@@ -100,59 +95,27 @@
                     <option value="3">Состоит в команде</option>
                 </select>
                 <select class="select-group">
+                    <option value="ФТ-201">ФТ-101</option>
+                    <option value="ФТ-202">ФТ-102</option>
+                    <option value="ФТ-203">ФТ-103</option>
+                    <option value="ФТ-204">ФТ-104</option>
                     <option value="ФТ-201">ФТ-201</option>
-                    <option value="ФТ-202">ФЕ-202</option>
+                    <option value="ФТ-202">ФТ-202</option>
                     <option value="ФТ-203">ФТ-203</option>
                     <option value="ФТ-204">ФТ-204</option>
+                    <option value="ФТ-201">ФТ-301</option>
+                    <option value="ФТ-202">ФТ-302</option>
+                    <option value="ФТ-203">ФТ-303</option>
+                    <option value="ФТ-204">ФТ-304</option>
+                    <option value="ФТ-201">ФТ-401</option>
+                    <option value="ФТ-202">ФТ-402</option>
+                    <option value="ФТ-203">ФТ-403</option>
+                    <option value="ФТ-204">ФТ-404</option>
                 </select>
             </div>
         </form>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                document.querySelector('.selected-categories .search-input').focus();
-            });
-
-            document.querySelector('.custom-select').addEventListener('click', function (event) {
-                // Проверяем, что клик был не по .selected-categories и не по .search-button
-                if (!event.target.closest('.selected-categories') && !event.target.closest('.search-button')) {
-                    const optionsContainer = document.querySelector('.options-container');
-                    // Переключаем видимость .options-container
-                    if (optionsContainer.style.display === 'none') {
-                        optionsContainer.style.display = 'block';
-                    } else {
-                        optionsContainer.style.display = 'none';
-                    }
-                }
-            });
-
-            document.getElementById('selectedCategories').addEventListener('click', function () {
-                document.getElementById('optionsContainer').style.display = 'block';
-            });
-
-            document.getElementById('optionsContainer').addEventListener('click', function (event) {
-                if (event.target.classList.contains('option')) {
-                    const selectedCategories = document.getElementById('selectedCategories');
-                    const option = event.target;
-                    const categoryDiv = document.createElement('div');
-                    categoryDiv.classList.add('category');
-                    categoryDiv.textContent = option.textContent;
-                    categoryDiv.addEventListener('click', function () {
-                        this.remove();
-                        option.style.display = 'block'; // Показываем опцию в списке опций
-                    });
-                    selectedCategories.appendChild(categoryDiv);
-                    option.style.display = 'none'; // Скрываем выбранную опцию в списке опций
-                }
-            });
-
-            // Скрываем список опций при клике вне его
-            window.addEventListener('click', function (event) {
-                if (!event.target.closest('.custom-select')) {
-                    document.getElementById('optionsContainer').style.display = 'none';
-                }
-            });
-        </script>
+        <script src="searchingBar.js"></script>
 
         <article class="results">
             <section class="worksheet">
