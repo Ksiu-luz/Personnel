@@ -328,6 +328,14 @@ input::placeholder {
 
 .status .in-data label {
     font-weight: bolder;
+    font-size: 120%;
+}
+
+.status .in-data form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .projects,
@@ -472,6 +480,183 @@ input {
     margin: 0 10px;
     padding-bottom: 10px;
 }
+
+.skill-search,
+.selected-skills {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    padding: 10px;
+}
+
+.warning {
+    padding: 10px 0;
+    font-weight: bolder;
+    font-family: Inter, Arial, sans-serif;
+    color: rgba(161, 3, 175, 0.322);
+
+}
+
+.skills .in-data {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+
+.sk {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.skill {
+    display: flex;
+    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.35), rgba(161, 3, 175, 0.35));
+    border-radius: 15px;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+    font-weight: bold;
+    width: min-content;
+    height: min-content;
+    margin: 5px;
+    padding: 5px 15px;
+    gap: 5px;
+}
+
+.delete-skill {
+    background-image: url('../images/delete_skill.svg');
+    background-position: center;
+    cursor: pointer;
+    /* Убедитесь, что фоновое изображение не повторяется */
+    background-repeat: no-repeat;
+    /* Установите размер фонового изображения */
+    background-size: 50% 50%;
+    /* Установите цвет фона, который будет виден, если изображение не загрузится */
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+}
+
+.custom-select {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    
+    min-height: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.24);
+    width: 100%;
+}
+
+.selected-categories {
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.selected-categories .category {
+    font-family: Inter, Arial, sans-serif;
+    background-color: rgba(250, 134, 217, 1);
+    color: white;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.options-container {
+    display: none;
+    position: absolute;
+    width: 100%;
+    border: none;
+    background-color: #fff;
+    box-sizing: border-box;
+    overflow: scroll;
+    scrollbar-width: none;
+    max-height: 100px;
+    border-radius: 10px;
+    top: 100%; /* Позиционируем список категорий под .selected-categories */
+    left: 0; /* Выравниваем список категорий по левому краю .custom-select */
+}
+
+.option {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background-color: #f1f1f1;
+}
+
+.search-input{
+    background-color: hsl(from color h s l);
+    flex-grow: 1; /* Добавляем flex-grow */
+    border: none;
+    order: 1;
+}
+
+.search-input:focus {
+    outline: none; /* Удаляем стандартный контур */
+    box-shadow: none; /* Удаляем стандартное тенистое окружение */
+    border-color: transparent; /* Удаляем стандартный цвет границы */
+}
+
+.search-button {
+    background-image: url('../images/search.svg');
+    border: none;
+    flex-shrink: 0; /* Предотвращает сжатие кнопки */
+    flex-grow: 0; /* Предотвращает растяжение кнопки */
+    flex-basis: 30px; /* Задает базовый размер кнопки */
+
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    cursor: pointer;
+    /* Убедитесь, что фоновое изображение не повторяется */
+    background-repeat: no-repeat;
+    /* Установите размер фонового изображения */
+    background-size: contain;
+    /* Установите цвет фона, который будет виден, если изображение не загрузится */
+    background-color: transparent;
+    /* Добавьте другие стили, если необходимо */
+    border: none;
+    font-size: 16px;
+    margin: 5px 10px;
+}
+
+.save {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.save-butt {
+    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.25));
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 130px;
+    height: 40px;
+    font-family: Inter, Arial, sans-serif;
+    font-size: large;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.save-butt:hover {
+    background-color: rgba(161, 3, 175, 0.39); /* Изменяем фон при наведении */
+    box-shadow: none;
+}
+
 
 /* а теперь все для мобилок */
 
@@ -658,13 +843,6 @@ input {
         width: 100%;
     }
 
-    .status .in-data form {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-    }
-
     .status .in-data form label {
         font-size: 130%;
     }
@@ -712,6 +890,19 @@ input {
         outline: none;
     }
 
+    .skill-search, 
+    .selected-skills {
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+        align-items: start;
+    }
+    
+    .skills .in-data {
+        justify-content: start;
+        flex-direction: column;
+        gap: 20px;
+    }
 
 }
 
