@@ -201,7 +201,28 @@ footer {
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
     margin-top: auto;
     margin-bottom: auto;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 20px;
+    font-family: Inter, Arial, sans-serif;
+    font-weight: bolder;
+    font-size: medium;
+    color: #F04FC3;
+}
 
+.authors {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: center;
+}
+
+.authors a {
+    color: #F04FC3;
+    font-weight: bolder;
+    text-decoration: none;
 }
 
 /* анкеты */
@@ -455,6 +476,12 @@ footer {
     footer {
         padding: 5px 0;
         /* Уменьшаем отступы */
+        flex-direction: column;
+    }
+
+    .authors {
+        flex-direction: column;
+        padding: 20px 0;
     }
 
     .worksheet {

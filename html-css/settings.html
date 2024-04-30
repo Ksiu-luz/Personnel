@@ -206,10 +206,6 @@
             </div>
         </section>
         <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                document.querySelector('.selected-categories .search-input').focus();
-            });
-
             document.querySelector('.custom-select').addEventListener('click', function (event) {
                 // Проверяем, что клик был не по .selected-categories и не по .search-button
                 if (!event.target.closest('.selected-categories') && !event.target.closest('.search-button')) {
@@ -284,7 +280,14 @@
     </main>
 
     <footer>
-        <p>&copy; Год - Имя Фамилия</p>
+        <section class="authors">
+            Анкеты создателей: 
+            <a href="">Сеня Л.</a>
+            <a href="">Лена П.</a>
+            <a href="">Слава С.</a>
+            <a href="">Андрей Х.</a>
+        </section>
+        <section class="year">2024 ФИИТ</section>
     </footer>
 </body>
 
