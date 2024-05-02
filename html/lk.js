@@ -27,9 +27,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
-
-const contact = document.getElementById('contact');
-let contactClick = function() {
-    window.location.href='https://telegram.me/andrey_hov';
-}
-contact.addEventListener('click', contactClick);
