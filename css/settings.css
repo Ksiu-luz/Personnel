@@ -396,7 +396,7 @@ input::placeholder {
 }
 
 .proj .delete-proj {
-    background-image: url('../images/delete_proj.svg');
+    background-image: url('../html/images/delete_proj.svg');
     background-position: center;
     cursor: pointer;
     /* Убедитесь, что фоновое изображение не повторяется */
@@ -547,7 +547,7 @@ input {
 }
 
 .delete-skill {
-    background-image: url('../images/delete_skill.svg');
+    background-image: url('../html/images/delete_skill.svg');
     background-position: center;
     cursor: pointer;
     /* Убедитесь, что фоновое изображение не повторяется */
