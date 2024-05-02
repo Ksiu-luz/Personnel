@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Личная страница</title>
-    <link rel="stylesheet" href="s.css">
+    <link rel="stylesheet" href="../css/s.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
 </head>
 
 <body>
@@ -18,30 +19,61 @@
                     <button id="menuClose" class="logo-btn-cl"></button>
                 </li>
                 <li class="lk">
-                    <a href="/home">
+                    <a href="#">
                         <img src="images/home.svg" alt="home"><span>личный кабинет</span>
                     </a>
                 </li>
                 <li class="wsh">
-                    <a href="/worksheets">
+                    <a href="worksheets.html">
                         <img src="images/анкеты.svg" alt="worksheet"><span>анкеты</span>
                     </a>
                 </li>
             </ul>
             <ul>
                 <li class="sett">
-                    <a href="#">
+                    <a href="settings.html">
                         <img src="images/настройки.svg" alt="settings"><span>настройки</span>
                     </a>
                 </li>
                 <li class="ex">
-                    <a href="/exit">
+                    <a href="#">
                         <img src="images/выход.svg" alt="exit"><span>выход</span>
                     </a>
                 </li>
             </ul>
         </nav>
     </header>
+    <script>
+        document.getElementById('menu').addEventListener('click', function () {
+            document.getElementById('sideMenu').classList.toggle('open');
+        });
+        document.getElementById('menuClose').addEventListener('click', function () {
+            document.getElementById('sideMenu').classList.toggle('open');
+        });
+
+        // это для мобилок 
+        document.addEventListener('DOMContentLoaded', function () {
+            var sideMenu = document.getElementById('sideMenu');
+            var startX, endX;
+
+            document.addEventListener('touchstart', function (e) {
+                startX = e.touches[0].clientX;
+            });
+
+            document.addEventListener('touchend', function (e) {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                if (endX - startX > 50) { // Если свайп вправо
+                    sideMenu.classList.add('open');
+                } else if (startX - endX > 50) { // Если свайп влево
+                    sideMenu.classList.remove('open');
+                }
+            }
+        });
+    </script>
     <main>
         <section class="profile-info">
             <article class="user">
@@ -49,7 +81,7 @@
                 <div class="user-info">
                     <div class="name">
                         <h1>Ингиборга Дапкунайте</h1>
-                        <img src="images/status/status1.svg" alt="Статус" class="status-img" title="Не ищет команду">
+                        <img src="images/status/status2.svg" alt="Статус" class="status-img" title="Не ищет команду">
                     </div>
                     <p class="group">ФТ-203</p>
                 </div>
@@ -58,6 +90,7 @@
                 <ul>
                     <li>Телеграм: @SuperBig</li>
                     <li>Github: SuperBig</li>
+                    <li><button id="contact">Связаться</button></li>
                 </ul>
             </address>
         </section>
@@ -65,19 +98,26 @@
             <article class="data">
                 <section class="projects">
                     <h2 class="chapter">Проекты</h2>
-                    <ul class="in-data">
-                        <li>Госуслуги</li>
-                        <li>READy</li>
-                        <li>Крестики-нолики</li>
-                        <li>Крестики-нолики</li>
-                        <li>Крестики-нолики</li>
-                        <li>Крестики-нолики</li>
-                        <li>Крестики-нолики</li>
-                        <li>Крестики-нолики</li>
-                        <li>Крестики-нолики</li>
-                        <li>Крестики-нолики</li>
-                        <li>Крестики-нолики</li>
-                    </ul>
+                    <div class="in-data">
+                        <div class="proj">
+                            <h2 id="proj-name">Personnel</h2>
+                            <span id="proj-role" class="proj-role">test-engineer</span>
+                            <span id="proj-descripton" class="proj-descripton">Lorem ipsum, dolor sit amet consectetur
+                                adipisicing elit.
+                                Accusamus officiis quam perferendis commodi dolorum esse illo amet deleniti
+                                exercitationem incidunt!</span>
+                            <button class="proj-button">посмотреть</button>
+                        </div>
+                        <div class="proj">
+                            <h2 id="proj-name">Personnel</h2>
+                            <span id="proj-role" class="proj-role">test-engineer</span>
+                            <span id="proj-descripton" class="proj-descripton">Lorem ipsum, dolor sit amet consectetur
+                                adipisicing elit.
+                                Accusamus officiis quam perferendis commodi dolorum esse illo amet deleniti
+                                exercitationem incidunt!</span>
+                            <button class="proj-button">посмотреть</button>
+                        </div>
+                    </div>
                 </section>
                 <section class="skills">
                     <h2 class="chapter">Навыки</h2>
@@ -115,10 +155,24 @@
     </main>
 
     <footer>
-        <p>&copy; Год - Имя Фамилия</p>
+        <section class="authors">
+            Анкеты создателей: 
+            <a href="">Сеня Л.</a>
+            <a href="">Лена П.</a>
+            <a href="">Слава С.</a>
+            <a href="">Андрей Х.</a>
+        </section>
+        <section class="year">2024 ФИИТ</section>
     </footer>
 
-    <script src="lk.js"></script>
+
+    <script>
+        const contact = document.getElementById('contact');
+        let contactClick = function() {
+            window.location.href='https://telegram.me/andrey_hov';
+        }
+        contact.addEventListener('click', contactClick);
+    </script>
 </body>
 
 </html>

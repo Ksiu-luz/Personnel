@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
-const authRouter = require("./authRouter");
 const bodyParser = require('body-parser');
-const authMiddleware = require("./middlewaree/authMiddleware");
 
 const port = 3000;
 
@@ -27,7 +25,7 @@ app.get('/', (req, res) => {
 app.get('/login', (req, res) => {
     res.sendFile(__dirname + '/html/login.html');
 });
-app.get('/lk', authMiddleware, (req, res) => {
+app.get('/lk', (req, res) => {
     res.sendFile(__dirname + '/html/lk.html');
 })
 

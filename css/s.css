@@ -68,12 +68,12 @@ header {
     font-size: 16px;
     padding: 10px;
     /* Установите фоновое изображение */
-    background-image: url('http://localhost:3000/images/logo.svg');
+    background-image: url('../html/images/logo.svg');
 }
 
 .logo-btn-cl {
     /* Установите фоновое изображение */
-    background-image: url('http://localhost:3000/images/logo2.svg');
+    background-image: url('../html/images/logo2.svg');
 }
 
 main {
