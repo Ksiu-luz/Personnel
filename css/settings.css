@@ -29,7 +29,8 @@ ul li {
 }
 
 h1,
-h2 {
+h2,
+h3 {
     margin-top: 0;
     /* Удаление верхнего отступа */
     margin-bottom: 0;
@@ -46,6 +47,7 @@ header {
     top: 0;
     width: 100%;
     z-index: 1;
+    /* display: none; */
 }
 
 .logo-btn,
@@ -65,12 +67,12 @@ header {
     font-size: 16px;
     padding: 10px;
     /* Установите фоновое изображение */
-    background-image: url('../html/images/logo.svg');
+    background-image: url('../images/logo.svg');
 }
 
 .logo-btn-cl {
     /* Установите фоновое изображение */
-    background-image: url('../html/images/logo2.svg');
+    background-image: url('../images/logo2.svg');
 }
 
 main {
@@ -80,7 +82,7 @@ main {
     margin: 0 auto;
     padding: 20px;
     flex-grow: 1;
-    padding-top: 120px;
+    padding-top: 60px;
     z-index: 0;
 }
 
@@ -124,25 +126,14 @@ main {
     margin-top: 8px;
 }
 
-.profile-img {
-    width: 100px;
-    /* Устанавливаем ширину */
-    height: 100px;
-    /* Устанавливаем высоту */
-    border-radius: 50%;
-    /* Делаем изображение круглым */
-    object-fit: cover;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
 h1 {
     display: inline-block;
     font-size: 150%;
 }
 
 .status-img {
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     object-fit: cover;
     padding: 0 20px;
 }
@@ -225,18 +216,348 @@ footer {
     text-decoration: none;
 }
 
-/* анкеты */
+/* настройки */
 
-.search {
-    width: 100%;
-    min-height: 50px;
+.settings-menu {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+    justify-content: space-around;
+    align-items: end;
+    flex-wrap: wrap;
+    padding: 120px 40px 0;
+    gap: 10px;
+    margin: 0 30px;
+}
+
+.settings-img {
+    height: 30px;
+}
+
+.settings-point {
+    font-size: x-large;
+    padding: 0;
+    margin: 0;
+    color: #F04FC3;
+    font-weight: bolder;
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+.settings-button {
+    background: none;
+    color: none;
+    border: none;
+}
+
+.contacts-status {
+    display: flex;
+    gap: 40px;
     flex-wrap: nowrap;
-    padding: 30px 0;
-    gap: 20px;
+    width: 100%;
+}
+
+.contacts,
+.status {
+    display: flex;
+    flex-direction: column;
+}
+
+.contacts {
+    width: 45%;
+}
+
+.status {
+    width: 55%;
+}
+
+.in-data {
+    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.15));
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    height: 250px;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group input {
+    border: none;
+    height: 25px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.input-group input:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-weight: bolder;
+    opacity: 1;
+    /* Firefox */
+    color: rgba(161, 3, 175, 0.322);
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    font-weight: bolder;
+    color: rgba(161, 3, 175, 0.322);
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    font-weight: bolder;
+    color: rgba(161, 3, 175, 0.322);
+}
+
+/* Стилизация подсказки для браузеров, поддерживающих псевдоэлемент ::placeholder */
+input::placeholder {
+    font-weight: bolder;
+    color: rgba(161, 3, 175, 0.322);
+}
+
+.input-group label {
+    font-weight: bolder;
+}
+
+.in-data form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.contacts h3,
+.status h3,
+.projects h3,
+.skills h3,
+.experience h3,
+.about-me h3 {
+    padding: 0 10px 10px;
+    font-size: 130%;
+}
+
+.status .in-data label {
+    font-weight: bolder;
+    font-size: 120%;
+}
+
+.status .in-data form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.projects,
+.skills,
+.experience,
+.about-me {
+    padding-top: 20px;
+}
+
+.projects .in-data {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 45px;
+}
+
+.projects .projs {
+    width: 50%;  
+}
+
+.projs .in-projs {
+    overflow: scroll;
+    scrollbar-width: none;
+    height: 350px;
+}
+
+.projs .proj {
+    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.15));
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative; /* Это делает .proj контейнером для абсолютного позиционирования кнопки */
+    min-height: 100px;
+    flex-direction: column;
+}
+
+.proj .delete-proj {
+    background-image: url('../images/delete_proj.svg');
+    background-position: center;
+    cursor: pointer;
+    /* Убедитесь, что фоновое изображение не повторяется */
+    background-repeat: no-repeat;
+    /* Установите размер фонового изображения */
+    background-size: contain;
+    /* Установите цвет фона, который будет виден, если изображение не загрузится */
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    position: absolute; /* Абсолютное позиционирование кнопки относительно .proj */
+    top: 15px; /* Отступ от верхнего края контейнера */
+    right: 15px; /* Отступ от правого края контейнера */
+}
+
+.proj-role {
+    padding-bottom: 10px;
+    font-size: smaller;
+    font-weight: bolder;
+}
+
+.proj-descripton {
+    padding: 10px 0;
+    font-weight: bolder;
+}
+
+.proj-button {
+    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.25));
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 120px;
+    height: 35px;
+    font-family: Inter, Arial, sans-serif;
+    font-size: medium;
+    margin: 20px 0 10px;
+    cursor: pointer;
+}
+
+.proj-button:hover {
+    background-color: rgba(161, 3, 175, 0.39); /* Изменяем фон при наведении */
+    box-shadow: none;
+}
+
+.projects form {
+    width: 40%;
+}
+
+input {
+    height: 30px;
+}
+
+.proj-submit-button {
+    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.25));
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    color: black; /* Белый текст */
+    width: 120px;
+    border: none; /* Убираем границу */
+    border-radius: 5px; /* Скругленные углы */
+    cursor: pointer; /* Изменяем курсор на указатель при наведении */
+    transition: background-color 0.3s ease; /* Анимация при наведении */
+    font-weight: bolder;
+    text-align: center;   
+    font-size: medium;
+    font-family: Inter, Arial, sans-serif;
+}
+
+.proj-submit-button:hover {
+    background-color: rgba(161, 3, 175, 0.39); /* Изменяем фон при наведении */
+    box-shadow: none;
+}
+
+.input-data {
+    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.15));
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    height: 250px;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: start;
+    outline: none;
+    resize: none;
+    font-size: 20px;
+    font-family: Inter, Arial, sans-serif;
+}
+
+.about-me .input-data {
+    height: 70px;
+    box-sizing: border-box;
+}
+
+.about-me .in-data {
+    height: auto;
+}
+
+.for-page, 
+.for-search {
+    margin: 0 10px;
+    padding-bottom: 10px;
+}
+
+.skill-search,
+.selected-skills {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    padding: 10px;
+}
+
+.warning {
+    padding: 10px 0;
+    font-weight: bolder;
+    font-family: Inter, Arial, sans-serif;
+    color: rgba(161, 3, 175, 0.322);
+
+}
+
+.skills .in-data {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+
+.sk {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.skill {
+    display: flex;
+    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.35), rgba(161, 3, 175, 0.35));
+    border-radius: 15px;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+    font-weight: bold;
+    width: min-content;
+    height: min-content;
+    margin: 5px;
+    padding: 5px 15px;
+    gap: 5px;
+}
+
+.delete-skill {
+    background-image: url('../images/delete_skill.svg');
+    background-position: center;
+    cursor: pointer;
+    /* Убедитесь, что фоновое изображение не повторяется */
+    background-repeat: no-repeat;
+    /* Установите размер фонового изображения */
+    background-size: 50% 50%;
+    /* Установите цвет фона, который будет виден, если изображение не загрузится */
+    background-color: transparent;
+    border: none;
+    padding: 10px;
 }
 
 .custom-select {
@@ -249,45 +570,7 @@ footer {
     cursor: pointer;
     border-radius: 10px;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.24);
-    width: 70%;
-}
-
-.select-status,
-.select-group {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    background-color: #ffffff;
-    min-height: 40px;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.24);
     width: 100%;
-    font-size: 120%;
-    font-family: Inter, Arial, sans-serif;
-    height: 100%;
-    border: none; /* Удаляем стандартную границу */
-}
-
-.select-status option,
-.select-group option {
-    padding: 5px; /* Добавляем отступ */
-    border: none;
-    cursor: pointer; /* Изменяем курсор на указатель */
-}
-
-.select-status:focus,
-.select-group:focus {
-    outline: none; /* Удаляем стандартный контур */
-    border: none; 
-}
-
-.selects{
-    display: flex;
-    width: 30%;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
 }
 
 .selected-categories {
@@ -347,7 +630,7 @@ footer {
 }
 
 .search-button {
-    background-image: url('../html/images/search.svg');
+    background-image: url('../images/search.svg');
     border: none;
     flex-shrink: 0; /* Предотвращает сжатие кнопки */
     flex-grow: 0; /* Предотвращает растяжение кнопки */
@@ -369,56 +652,30 @@ footer {
     margin: 5px 10px;
 }
 
-.wolf-qoute {
+.save {
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    padding: 40px 0;
-    z-index: -1;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
-.wolf-qoute img {
-    width: 100%; /* Установите ширину изображения равной 100% */
-    height: auto; /* Установите высоту автоматически, чтобы сохранить пропорции */
-    transform: scale(0.7);
-}
-
-.worksheet {
-    width: 100%;
-    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.15));
-    border-radius: 10px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
-    padding: 0 20px;
-}
-
-.results{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-    box-sizing: border-box;
-    padding: 0 40px;
-    padding-top: 50px;
-}
-
-.skills {
-    display: flex;
-    height: 30px;
-    gap: 5px;
-}
-
-.skill {
-    display: flex;
-    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.35), rgba(161, 3, 175, 0.35));
-    border-radius: 15px;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding: 0 20px;
+.save-butt {
+    background: linear-gradient(to bottom, rgba(120, 88, 224, 0.15), rgba(161, 3, 175, 0.25));
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 5px;
     font-weight: bold;
+    width: 130px;
+    height: 40px;
+    font-family: Inter, Arial, sans-serif;
+    font-size: large;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.save-butt:hover {
+    background-color: rgba(161, 3, 175, 0.39); /* Изменяем фон при наведении */
+    box-shadow: none;
 }
 
 
@@ -449,8 +706,9 @@ footer {
     main {
         padding: 10px;
         /* Уменьшаем отступы */
-        padding-top: 60px;       
+        padding-top: 30px;
         /* Увеличиваем отступ сверху, чтобы учесть фиксированный header */
+
     }
 
     .profile-info {
@@ -467,6 +725,7 @@ footer {
     .user {
         align-items: center;
     }
+
     .profile-info,
     .user {
         flex-direction: column;
@@ -490,13 +749,7 @@ footer {
         min-width: none;
     }
 
-    .profile-img {
-        width: 80px;
-        /* Уменьшаем размер изображения */
-        height: 80px;
-    }
-
-    .user-info{
+    .user-info {
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -512,16 +765,9 @@ footer {
         text-align: center;
     }
 
-    .profile-img {
-        width: 150px;
-        /* Устанавливаем ширину */
-        height: 150px;
-        /* Устанавливаем высоту */
-    }
-
     .status-img {
-        width: 35px;
-        height: 35px;
+        width: 15px;
+        height: 15px;
     }
 
     .side-menu {
@@ -572,9 +818,119 @@ footer {
         text-align: center;
     }
 
-    .results{
+    .results {
         padding: 0;
     }
+
+    .settings-menu {
+        padding: 20px;
+    }
+
+    .contacts-status {
+        flex-direction: column;
+        gap: 20px;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    .contacts,
+    .status {
+        width: 100%;
+    }
+
+    .input-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .input-group input {
+        height: 30px;
+    }
+
+    .in-data {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .about-me .in-data {
+        justify-content: start;
+    }
+
+    .about-me .input-data {
+        padding: 5px;
+        height: 85px;
+    }
+
+    .contacts .input-group {
+        align-items: start;
+    }
+
+    .contacts .input-group input{
+        width: 100%;
+    }
+
+    .status .in-data form label {
+        font-size: 130%;
+    }
+
+    .status .in-data form label img {
+        height: 35px;
+        width: 35px;
+    }
+
+    .projects form,
+    .projects .projs {
+        width: 100%;
+    }
+
+    .projects .in-data {
+        flex-direction: column;
+    }
+
+    .settings-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+
+    }
+
+    .settings-point {
+        font-size: 180%;
+    }
+
+    .settings-button {
+        cursor: pointer;
+    }
+
+    .settings-point.hidden {
+        display: none;
+    }
+
+    .settings-button:focus+.settings-point.hidden,
+    .settings-button:focus~.settings-point.hidden {
+        display: block;
+    }
+
+    .settings-button:focus {
+        outline: none;
+    }
+
+    .skill-search, 
+    .selected-skills {
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+        align-items: start;
+    }
+    
+    .skills .in-data {
+        justify-content: start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
 }
 
 @media only screen and (max-width: 280px) {
