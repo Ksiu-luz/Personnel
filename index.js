@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 app.get('/login', (req, res) => {
     res.sendFile(__dirname + '/html/login.html');
 });
-app.get('/lk', authMiddleware, (req, res) => {
+app.get('/lk', (req, res) => {
     res.sendFile(__dirname + '/html/lk.html');
 })
 
