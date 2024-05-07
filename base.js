@@ -21,19 +21,10 @@ conn.connect((err) => {
     if (err) throw err;
 });
 
-const findUser = (userName) => {
-    let person = {
-        userName: "",
-        password: "",
-        tg: ""
-    }
-    conn.query(`select student_name, password_hash from students where telegram_contact = '@${userName}' LIMIT 1`, (err, q) => {
-        if (err) throw err;
-        person.userName = q.rows[0].student_name;
-        person.password = q.rows[0].password_hash;
-        person.tg = q.rows[0].telegram_contact;
-    });
-    return person;
+const findUserByTg = async (tg) => {
+    const result = await conn.query(`select student_name, password_hash from students where telegram_contact = '@${tg}' LIMIT 1`);
+    return result.rows[0];
 }
 
-exports.findUser = findUser;
+findUserByTg("Andrew").then((value) => {console.log(value.student_name)});
+exports.findUserByTg = findUserByTg;
