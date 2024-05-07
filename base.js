@@ -46,31 +46,41 @@ const findUsersIdsBySkill = async (skill_name) => {
     return result;
 }
 
+const getUsersIdsBySkill = async (skill_name) => {
+    let idsBySkill = [];
+    await findUsersIdsBySkill(skill_name).then((value) => {
+        for (const row of value.rows) {
+            idsBySkill.push(+(row.student_id));
+        }
+    });
+    return idsBySkill;
+}
+
 const findUsersBySkills = async (skills) => {
     let idsBySkills = [];
     for (const skill_name of skills) {
-        findUsersIdsBySkill(skill_name).then((value) => {
-            let idsBySkill = [];
-            for (const row of value.rows) {
-                idsBySkill.push(+row.student_id);
-            }
-            idsBySkills.push(idsBySkill);
+        await getUsersIdsBySkill(skill_name).then((value) => {
+            idsBySkills.push(value);
         });
     }
     
-    const intersection = idsBySkills.reduce((accumulator, array) => {
-        return accumulator.length === 0 ? array : accumulator.filter(element => array.includes(element));
-    }, []);
-
-    console.log(intersection);
-
+    const intersectionUsersBySkills = idsBySkills.reduce((accumulator, array) => {
+        return accumulator.filter(element => array.includes(element));
+    });
+    let usersIds = [];
+    for (const id of intersectionUsersBySkills) {
+        usersIds.push(+id);
+    }
     
-    return 0;
+    const query = 'SELECT * FROM students WHERE student_id = ANY($1)';
+    const result = await conn.query(query, [usersIds]);
+    return result;
 }
 
 
-findUsersBySkills(['PSQL master', 'C# master']);
-//findUsersBySkills('PSQL master').then((value) => {console.log(value.rows)});
+findUsersBySkills(['PSQL master', 'C# master']).then((value) => {console.log(value.rows)});
+
 exports.findUsersByName = findUsersByName;
 exports.findUsersByGroup = findUsersByGroup;
 exports.findUsersByStatus = findUsersByStatus;
+exports.findUsersBySkills = findUsersBySkills;
