@@ -26,6 +26,11 @@ const findUsersByName = async (student_name) => {
     return result;
 }
 
+const getSkills = async () => {
+    const result = await conn.query(`SELECT * FROM skills`);
+    return result;
+}
+
 const findUsersByGroup = async (student_group) => {
     const result = await conn.query(`SELECT * FROM students WHERE group_id = (SELECT group_id FROM groups WHERE group_num = '${student_group}')`);
     return result;
@@ -77,10 +82,11 @@ const findUsersBySkills = async (skills) => {
     return result;
 }
 
-
+getSkills().then((value) => {console.log(value.rows)});
 findUsersBySkills(['PSQL master', 'C# master']).then((value) => {console.log(value.rows)});
 
 exports.findUsersByName = findUsersByName;
 exports.findUsersByGroup = findUsersByGroup;
 exports.findUsersByStatus = findUsersByStatus;
 exports.findUsersBySkills = findUsersBySkills;
+exports.getSkills = getSkills;
