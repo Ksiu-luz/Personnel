@@ -10,7 +10,7 @@ const config = {
     ssl: {
         rejectUnauthorized: true,
         ca: fs
-            .readFileSync("C:/Users/user/.postgresql/root.crt")
+            .readFileSync("C:/Users/cattu/.postgresql/root.crt")
             .toString(),
     },
 };
@@ -23,6 +23,11 @@ conn.connect((err) => {
 
 const findUsersByName = async (student_name) => {
     const result = await conn.query(`SELECT * FROM students WHERE student_name = '${student_name}'`);
+    return result;
+}
+
+const getSkills = async () => {
+    const result = await conn.query(`SELECT skill_name FROM skills`);
     return result;
 }
 
@@ -77,10 +82,12 @@ const findUsersBySkills = async (skills) => {
     return result;
 }
 
-
-findUsersBySkills(['PSQL master', 'C# master']).then((value) => {console.log(value.rows)});
+//getSkills().then((value) => {console.log(value.rows)});
+//findUsersBySkills(['PSQL master', 'C# master']).then((value) => {console.log(value.rows)});
 
 exports.findUsersByName = findUsersByName;
 exports.findUsersByGroup = findUsersByGroup;
 exports.findUsersByStatus = findUsersByStatus;
 exports.findUsersBySkills = findUsersBySkills;
+exports.getSkills = getSkills;
+
