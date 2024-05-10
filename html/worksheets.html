@@ -82,7 +82,7 @@
         <form class="search">
             <div class="custom-select">
                 <div class="selected-categories" id="selectedCategories">
-                    <input onkeyup="searching(this.value)"  type="text" class="search-input">
+                    <input onkeyup="searching(this.value)" type="text" class="search-input">
                     <div class="options-container" id="optionsContainer">
                     </div>
                 </div>
@@ -90,11 +90,13 @@
             </div>
             <div class="selects">
                 <select class="select-status">
+                    <option value="0">Не выбрано</option>
                     <option value="1">Ищет команду</option>
                     <option value="2">Не ищет команду</option>
                     <option value="3">Состоит в команде</option>
                 </select>
                 <select class="select-group">
+                    <option value="00">Не выбрано</option>
                     <option value="ФТ-201">ФТ-201</option>
                     <option value="ФТ-202">ФТ-202</option>
                     <option value="ФТ-203">ФТ-203</option>
@@ -103,104 +105,13 @@
             </div>
         </form>
 
-        <script src="../worksheets.js"></script>
+        <script src="loadOptions.js">
+        </script>
 
         <article class="results">
-            <section class="worksheet">
-                <section class="profile-info">
-                    <div class="block">
-                        <img src="images/avatar.jpg" alt="Фото" class="profile-img">
-                        <article class="user">
-                            <div class="info">
-                                <div class="user-info">
-                                    <h1>Ингиборга Дапкунайте</h1>
-                                    <p class="group">ФТ-203</p>
-                                    <div class="skills">
-                                        <div class="skill">HTML</div>
-                                        <div class="skill">CSS</div>
-                                    </div>
-                                </div>
-                                <p class="personal">
-                                    Я интроверт, и немного стеснительный, так что если вы хотите устраивать еженедельные
-                                    созвоны по проекту, будьте готовы, что я не включу камеру.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <img src="images/status/status2.svg" alt="Статус" class="status-img" title="Не ищет команду">
-                </section>
-            </section>
-
-            <section class="worksheet">
-                <section class="profile-info">
-                    <div class="block">
-                        <img src="images/avatar.jpg" alt="Фото" class="profile-img">
-                        <article class="user">
-                            <div class="info">
-                                <div class="user-info">
-                                    <h1>Пан Кихой</h1>
-                                    <p class="group">ФТ-201</p>
-                                    <div class="skills">
-                                        <div class="skill">С#</div>
-                                        <div class="skill">Python</div>
-                                        <div class="skill">Figma</div>
-                                    </div>
-                                </div>
-                                <p class="personal">
-                                    Я телец.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <img src="images/status/status2.svg" alt="Статус" class="status-img" title="Не ищет команду">
-                </section>
-            </section>
         </article>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var form = document.querySelector('.search');
-                var button = form.querySelector('.search-button');
-              
-                button.addEventListener('click', function(event) {
-                  event.preventDefault(); 
-              
-                  var userName = 'Ингиборга Дапкунайте';
-                  var group = 'ФТ-203';
-                  var skills = ['HTML', 'CSS'];
-                  var personalInfo = 'Я интроверт, и немного стеснительный, так что если вы хотите устраивать еженедельные созвоны по проекту, будьте готовы, что я не включу камеру.';
-                  var statusImgSrc = 'images/status/status2.svg';
-                  var statusAltText = 'Не ищет команду';
-              
-                  var worksheet = document.createElement('section');
-                  worksheet.className = 'worksheet';
-              
-                  worksheet.innerHTML = `
-                    <section class="profile-info">
-                      <div class="block">
-                        <img src="images/avatar.jpg" alt="Фото" class="profile-img">
-                        <article class="user">
-                          <div class="info">
-                            <div class="user-info">
-                              <h1>${userName}</h1>
-                              <p class="group">${group}</p>
-                              <div class="skills">
-                                ${skills.map(skill => `<div class="skill">${skill}</div>`).join('')}
-                              </div>
-                            </div>
-                            <p class="personal">${personalInfo}</p>
-                          </div>
-                        </article>
-                      </div>
-                      <img src="${statusImgSrc}" alt="${statusAltText}" class="status-img" title="${statusAltText}">
-                    </section>
-                  `;
-              
-                  // Добавляем секцию worksheet в родительский элемент results
-                  var results = document.querySelector('.results');
-                  results.appendChild(worksheet);
-                });
-              });
+        <script src="searchStudents.js">
         </script>
 
     </main>

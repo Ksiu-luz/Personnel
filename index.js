@@ -13,10 +13,12 @@ const start = () => {
 }
 
 app.use(express.static(__dirname + '/css'));
+app.use(express.static(__dirname + '/node_modules'));
 app.use(express.static(__dirname + '/html'));
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 
 
 app.get('/', (req, res) => {
@@ -27,6 +29,9 @@ app.get('/login', (req, res) => {
 });
 app.get('/lk', (req, res) => {
     res.sendFile(__dirname + '/html/lk.html');
+})
+app.get('/worksheets', (req, res) => {
+    res.sendFile(__dirname + '/html/worksheets.html');
 })
 
 

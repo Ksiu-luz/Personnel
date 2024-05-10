@@ -1,6 +1,6 @@
 "use strict";
-const pg = require("pg");
-const fs = require("fs");
+import { Client } from "pg";
+import { readFileSync } from "fs";
 
 const password = "rflhs777"
 
@@ -9,13 +9,12 @@ const config = {
         "postgres://user1:rflhs777@rc1d-qb53sjksx5xp5wsl.mdb.yandexcloud.net:6432/PersonnelDB",
     ssl: {
         rejectUnauthorized: true,
-        ca: fs
-            .readFileSync("C:/Users/cattu/.postgresql/root.crt")
+        ca: readFileSync("C:/Users/cattu/.postgresql/root.crt")
             .toString(),
     },
 };
 
-const conn = new pg.Client(config);
+const conn = new Client(config);
 
 conn.connect((err) => {
     if (err) throw err;
@@ -82,12 +81,17 @@ const findUsersBySkills = async (skills) => {
     return result;
 }
 
-//getSkills().then((value) => {console.log(value.rows)});
+//getSkills().then((value) => {console.log(value.rows[0].skill_name)});
 //findUsersBySkills(['PSQL master', 'C# master']).then((value) => {console.log(value.rows)});
 
-exports.findUsersByName = findUsersByName;
-exports.findUsersByGroup = findUsersByGroup;
-exports.findUsersByStatus = findUsersByStatus;
-exports.findUsersBySkills = findUsersBySkills;
-exports.getSkills = getSkills;
+const _findUsersByName = findUsersByName;
+export { _findUsersByName as findUsersByName };
+const _findUsersByGroup = findUsersByGroup;
+export { _findUsersByGroup as findUsersByGroup };
+const _findUsersByStatus = findUsersByStatus;
+export { _findUsersByStatus as findUsersByStatus };
+const _findUsersBySkills = findUsersBySkills;
+export { _findUsersBySkills as findUsersBySkills };
+const _getSkills = getSkills;
+export { _getSkills as getSkills };
 

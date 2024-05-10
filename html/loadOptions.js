@@ -1,4 +1,3 @@
-
 let keyWord = '';
 
 // должно из базы подгружаться
@@ -19,10 +18,10 @@ function searching(value) {
 function loadOptions() {
     let e = document.querySelector('#selectedCategories #optionsContainer');
 
-    e.innerHTML = null;
+    e.innerHTML = '';
 
-    let filterWord = keyWord == null ? options:options.filter((option) => 
-        option.label.toLowerCase().startsWith(keyWord.toLowerCase()));
+    let filterWord = keyWord == '' ? options:options.filter((option) => 
+        option.label.trim().toLowerCase().startsWith(keyWord.trim().toLowerCase()));
 
    filterWord.forEach((option) => {
         let el = document.createElement('div');
@@ -30,7 +29,7 @@ function loadOptions() {
         el.innerHTML = option.label;
 
         el.addEventListener('click', () => {
-            document.querySelector('#selectedCategories input').value = null;
+            document.querySelector('#selectedCategories input').value = '';
         })
 
         e.appendChild(el);
@@ -71,5 +70,3 @@ document.addEventListener('click', function (event) {
         document.getElementById('optionsContainer').style.display = 'none';
     }
 });
-
-
