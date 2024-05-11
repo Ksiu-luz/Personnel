@@ -58,7 +58,7 @@ function loadUsers(x) {
       worksheet.className = 'worksheet';
   
       worksheet.innerHTML = `
-        <section onclick="window.location.href = 'login.js'" class="profile-info">
+        <section onclick="window.open('login.html', '_blank')" class="profile-info">
           <div class="block">
             <img src="images/avatar.jpg" alt="Фото" class="profile-img">
             <article class="user">
@@ -88,6 +88,10 @@ loadUsers(users);
 document.addEventListener('DOMContentLoaded', function() {
     var form = document.querySelector('.search');
     var button = form.querySelector('.search-button');
+    var filter = form.querySelector('.selects');
+    var filterGroup = filter.querySelector('.select-group');
+    var filterStatus = filter.querySelector('.select-status');
+   
   
     button.addEventListener('click', function(event) {
       event.preventDefault(); 
@@ -96,19 +100,19 @@ document.addEventListener('DOMContentLoaded', function() {
       var skillBlocks = document.querySelectorAll('.category');
       var skillsSearch = [];
 
-      
-        skillBlocks.forEach((block) => {
-          skillsSearch.push(block.textContent);
-        });
+      skillBlocks.forEach((block) => {
+        skillsSearch.push(block.textContent);
+      });
 
-        var usersToShow = [];
-        users.forEach((user) =>{
-          if (skillsSearch.some(skill => user.skills.includes(skill))) {
-            usersToShow.push(user);
-          }
-        });
+      var usersToShow = [];
 
-        loadUsers(usersToShow);
+      users.forEach((user) => {
+        if (skillsSearch.some(skill => user.skills.includes(skill))) {
+          usersToShow.push(user);
+        }
+      });
+
+      loadUsers(usersToShow);
       
     });
   });
