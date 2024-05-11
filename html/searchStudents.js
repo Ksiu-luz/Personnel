@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // поиск по кнопке
     button.addEventListener('click', function(event) {
       event.preventDefault();
-      
+
       var inp = document.querySelector('#selectedCategories input').value;
       var skillBlocks = document.querySelectorAll('.category');
       var skillsSearch = [];
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var names = [];
 
 
-      // поиск по имени
+      // поиск по имени(в разработке)
       names = users.filter(user =>  
         (user.userName.trim().includes(inp))
       );
