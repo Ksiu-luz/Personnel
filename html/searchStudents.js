@@ -1,19 +1,23 @@
 var users = [
   {
     userName: 'Ингиборга Дапкунайте',
+      tg: 'hello123',
     group: 'ФТ-203',
     skills: ['HTML', 'CSS'],
     personalInfo: 'Я интроверт, и немного стеснительный, так что если вы хотите устраивать еженедельные созвоны по проекту, будьте готовы, что я не включу камеру.',
     statusImgSrc: 'images/status/status2.svg',
-    statusAltText: 'Не ищет команду'
+    statusAltText: 'Не ищет команду',
+      opyt_raboty: ['Тест-инженер', 'Разработчик']
   },
   {
     userName: 'Иван Иванов',
+      tg: 'hello456',
     group: 'ФТ-203',
     skills: ['SQL', 'C#'],
     personalInfo: 'Я интроверт',
     statusImgSrc: 'images/status/status1.svg',
-    statusAltText: 'Ищет команду'
+    statusAltText: 'Ищет команду',
+      opyt_raboty: ['Тестировщик', 'Кто-то еще']
   },
   {
     userName: 'Петр Петров',
@@ -49,6 +53,7 @@ function loadUsers(x) {
   x.forEach((user) => {
       var userName = user.userName;
       var group = user.group;
+      var tg = user.tg;
       var skills = user.skills;
       var personalInfo = user.personalInfo;
       var statusImgSrc =user.statusImgSrc;
@@ -58,7 +63,7 @@ function loadUsers(x) {
       worksheet.className = 'worksheet';
   
       worksheet.innerHTML = `
-        <section onclick="window.open('login.html', '_blank')" class="profile-info">
+        <section id=${tg} onclick="getPage(this.id)" class="profile-info">
           <div class="block">
             <img src="images/avatar.jpg" alt="Фото" class="profile-img">
             <article class="user">
@@ -101,12 +106,12 @@ function loadUser(user) {
   
       worksheet.innerHTML = `
         <section onclick="window.open('login.html', '_blank')" class="profile-info">
-          <div class="block">
+          <div class="block" id=${userName}>
             <img src="images/avatar.jpg" alt="Фото" class="profile-img">
             <article class="user">
               <div class="info">
                 <div class="user-info">
-                  <h1>${userName}</h1>
+                  <h1 id="user_name">${userName}</h1>
                   <p class="group">${group}</p>
                   <div class="skills">
                     ${skills.map(skill => `<div class="skill">${skill}</div>`).join('')}
@@ -126,6 +131,12 @@ function loadUser(user) {
 };
 
 loadUsers(users);
+
+
+function getPage(tg) {
+    localStorage.setItem('tg', tg);
+    window.location.href = 'lk2.html';
+}
 
 
 document.addEventListener('DOMContentLoaded', function() {

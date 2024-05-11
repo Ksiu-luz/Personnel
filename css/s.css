@@ -79,7 +79,7 @@ header {
 main {
     display: block;
     max-width: 1200px;
-    min-width: 60%;
+    min-width: 80%;
     margin: 0 auto;
     padding: 20px;
     flex-grow: 1;

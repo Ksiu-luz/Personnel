@@ -29,10 +29,13 @@ app.get('/login', (req, res) => {
 });
 app.get('/lk', (req, res) => {
     res.sendFile(__dirname + '/html/lk.html');
-})
+});
+app.get('/lk2', (req, res) => {
+    res.sendFile(__dirname + '/html/lk2.html');
+});
 app.get('/worksheets', (req, res) => {
     res.sendFile(__dirname + '/html/worksheets.html');
-})
+});
 
 
 start();
