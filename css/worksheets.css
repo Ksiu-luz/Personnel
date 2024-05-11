@@ -347,7 +347,7 @@ footer {
 }
 
 .search-button {
-    background-image: url('../html/images/search.svg');
+    background-image: url('/images/search.svg');
     border: none;
     flex-shrink: 0; /* Предотвращает сжатие кнопки */
     flex-grow: 0; /* Предотвращает растяжение кнопки */
