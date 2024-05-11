@@ -135,7 +135,7 @@ loadUsers(users);
 
 function getPage(tg) {
     localStorage.setItem('tg', tg);
-    window.location.href = 'lk2.html';
+    window.open('lk2.html')
 }
 
 
