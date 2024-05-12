@@ -1,4 +1,4 @@
-import { users } from "./users";
+import { users } from "./users.js";
 
 function loadUsers(x) {
   let e = document.querySelector('.results');

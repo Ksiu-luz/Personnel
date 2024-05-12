@@ -1,8 +1,8 @@
-import { users } from "./users";
+import { users } from "./users.js";
 
 
 let tg = localStorage.getItem('tg');
-user = users.filter(user =>
+var user = users.filter(user =>
     (user.tg === tg)
 )[0];
 document.getElementById("user_name").innerHTML = user.userName;
