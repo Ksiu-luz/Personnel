@@ -87,7 +87,7 @@ button:hover {
         max-height: 600px;
         height: 50%;
         width: 50%;
-        background-image: url("http://localhost:3000/images/Кадры.svg");
+        background-image: url("https://storage.yandexcloud.net/webber20/html/images/kadry.svg");
         background-repeat: no-repeat;
         /* Изображение не будет повторяться */
         background-size: contain;
