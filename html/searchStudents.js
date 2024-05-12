@@ -429,9 +429,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     );
                 }
                 else{
-                    usersToShow = users.filter(user =>
-                        usersToShow = users
-                    );
+                    usersToShow = users;
                 }
             }
         }
@@ -451,7 +449,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let group = localStorage.getItem('group');
         let status = localStorage.getItem('status');
         let skills = skillsSearch;
-        console.log(skills);
         if (group !== '0'){
             if (status !== '0'){
                 if (skills.length > 0){
@@ -498,9 +495,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     );
                 }
                 else{
-                    usersToShow = users.filter(user =>
-                        usersToShow = users
-                    );
+                    usersToShow = users;
                 }
             }
         }
@@ -555,6 +550,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let group = localStorage.getItem('group');
         let status = localStorage.getItem('status');
         let skills = skillsSearch;
+        console.log(skills);
         if (group !== '0'){
             if (status !== '0'){
                 if (skills.length > 0){
@@ -582,7 +578,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         else {
-            if (status.length > 0){
+            if (status !== '0'){
                 if (skills.length > 0){
                     usersToShow = users.filter(user =>
                         (user.statusAltText === status && skills.some(skill => user.skills.includes(skill)))
@@ -601,9 +597,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     );
                 }
                 else{
-                    usersToShow = users.filter(user =>
-                        usersToShow = users
-                    );
+                    usersToShow = users;
                 }
             }
         }
