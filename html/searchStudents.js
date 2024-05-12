@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let skills = skillsSearch;
         if (group !== '0'){
             if (status !== '0'){
-                if (skills !== ''){
+                if (skills.length !== 0){
                     usersToShow = users.filter(user =>
                         (user.group === group && user.statusAltText === status && skills.some(skill => user.skills.includes(skill)))
                     );
@@ -454,7 +454,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(skills);
         if (group !== '0'){
             if (status !== '0'){
-                if (skills !== ''){
+                if (skills.length > 0){
                     usersToShow = users.filter(user =>
                         (user.group === group && user.statusAltText === status && skills.some(skill => user.skills.includes(skill)))
                     );
@@ -557,7 +557,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let skills = skillsSearch;
         if (group !== '0'){
             if (status !== '0'){
-                if (skills !== ''){
+                if (skills.length > 0){
                     usersToShow = users.filter(user =>
                         (user.group === group && user.statusAltText === status && skills.some(skill => user.skills.includes(skill)))
                     );
@@ -582,7 +582,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         else {
-            if (status !== '0'){
+            if (status.length > 0){
                 if (skills.length > 0){
                     usersToShow = users.filter(user =>
                         (user.statusAltText === status && skills.some(skill => user.skills.includes(skill)))
