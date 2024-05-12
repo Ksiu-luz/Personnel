@@ -4,9 +4,14 @@ let keyWord = '';
 let options = [
     {value:"CSS", label:"CSS"},
     {value:"C#", label:"C#"},
+    {value:"C++", label:"C++"},
     {value:"Python", label:"Python"},
     {value:"JavaScript", label:"JavaScript"},
     {value:"SQL", label:"SQL"},
+    {value:"Docker", label:"Docker"},
+    {value:"Unity", label:"Unity"},
+    {value:"Design", label:"Design"},
+    {value:"Оратор", label:"Оратор"},
     {value:"HTML", label:"HTML"}
 ];
 
