@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Анкеты</title>
-    <link rel="stylesheet" href="https://storage.yandexcloud.net/webber20/css/worksheets.css">
+    <link rel="stylesheet" href="../css/worksheets.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/logo.svg" type="image/svg+xml">
 </head>
@@ -121,6 +121,30 @@
         </script>
 
         <article class="results">
+            <section class="worksheet">
+            <section onclick="window.open('login.html', '_blank')" class="profile-info">
+                <div class="block" id=${userName}>
+                  <img src="images/avatar.jpg" alt="Фото" class="profile-img">
+                  <article class="user">
+                    <div class="info">
+                      <div class="user-info">
+                        <h1 id="user_name">Идите Нахуй</h1>
+                        <p class="group">ФТ-203</p>
+                        <div class="skills">
+                            <div class="skill">Python</div>
+                            <div class="skill">C#</div>
+                            <div class="skill">Kotlin</div>
+                            <div class="skill">Оратор</div>
+                            <div class="skill">Python</div>
+                        </div>
+                      </div>
+                      <p class="personal">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+                    </div>
+                  </article>
+                </div>
+                <img src="${statusImgSrc}" alt="${statusAltText}" class="status-img" title="${statusAltText}">
+              </section>
+            </section>
         </article>
 
         <script type="module" src="searchStudents.js">
