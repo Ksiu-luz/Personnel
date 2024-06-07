@@ -5,13 +5,13 @@ async function getUsers() {
     await gettt.getUsers().then((value) => {users = value});
     let result = '';
     await users.forEach((user) => {
-        var userName = user.userName;
-        var group = user.group;
-        var tg = user.tg;
-        var skills = user.skills;
-        var personalInfo = user.personalInfo;
-        var statusImgSrc = user.statusImgSrc;
-        var statusAltText = user.statusAltText;
+        let userName = user.userName;
+        let group = user.group;
+        let tg = user.tg;
+        let skills = user.skills;
+        let personalInfo = user.personalInfo;
+        let statusImgSrc = getStatusImageByStatus(user.student_status);
+        let statusAltText = user.statusAltText;
 
         result += `
         <section class="worksheet">
@@ -39,5 +39,16 @@ async function getUsers() {
 
     return result;
 };
+
+const getStatusImageByStatus = (student_status) => {
+    if (student_status === 'Готов вступить в команду') {
+        return 'images/status/status1.svg';
+    }
+    if (student_status === 'В команде') {
+        return 'images/status/status3.svg'
+    }
+
+    return 'images/status/status2.svg'
+}
 
 module.exports.getUsers = getUsers;

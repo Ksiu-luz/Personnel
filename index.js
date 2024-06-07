@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const get = require("./getList")
 const {getUsers} = require("./getList");
 const {findUserByTg} = require("./base");
 const {getRawProjects} = require("./textProj");

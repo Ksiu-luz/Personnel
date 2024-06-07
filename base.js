@@ -161,11 +161,8 @@ const findUsersByStatus = async (student_status) => {
 }
 
 const findUserByTg = async (tg) => {
-    console.log(tg);
     const result = await conn.query(`SELECT * FROM students WHERE telegram_contact = '${tg}'`);
     let student = result.rows[0];
-    console.log('hello');
-    console.log(student);
     const student_skills = await getStudentSkills(student.student_id);
     const student_group = await getGroupByGroupId(student.group_id);
     const statusImage = await getStatusImageByStatus(student.student_status);
@@ -182,7 +179,6 @@ const findUserByTg = async (tg) => {
         work_experience : student.experience_info,
         projects : studentProjects
     };
-    console.log(packedStudent);
     return packedStudent;
 }
 
@@ -258,6 +254,7 @@ exports.findUserByTg = findUserByTg;
 exports.findUsersByGroup = findUsersByGroup;
 exports.findUsersByStatus = findUsersByStatus;
 exports.findUsersBySkills = findUsersBySkills;
+exports.getStatusImageByStatus = getStatusImageByStatus;
 exports.getSkills = getSkills;
 exports.findStudentsByName = findStudentsByName;
 exports.findStudentsByGroup = findStudentsByGroup;
