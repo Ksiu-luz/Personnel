@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкеты</title>
+    <link rel="stylesheet" href="worksheets.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <header>
+        <button id="menu" class="logo-btn"></button>
+        <nav id="sideMenu" class="side-menu">
+            <ul>
+                <li class="btt">
+                    <button id="menuClose" class="logo-btn-cl"></button>
+                </li>
+                <li class="lk">
+                    <a href="lk_copy.ejs">
+                        <img src="https://storage.yandexcloud.net/webber20/html/images/home.svg" alt="home"><span>личный кабинет</span>
+                    </a>
+                </li>
+                <li class="wsh">
+                    <a onclick='window.location.replace(`/worksheets`)'>
+                        <img src="https://storage.yandexcloud.net/webber20/html/images/anketa.svg" alt="worksheet"><span>анкеты</span>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li class="sett">
+                    <a href="settings.html">
+                        <img src="https://storage.yandexcloud.net/webber20/html/images/sett.svg" alt="settings"><span>настройки</span>
+                    </a>
+                </li>
+                <li class="ex">
+                    <a href="login.ejs">
+                        <img src="https://storage.yandexcloud.net/webber20/html/images/exit.svg" alt="exit"><span>выход</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        document.getElementById('menu').addEventListener('click', function () {
+            document.getElementById('sideMenu').classList.toggle('open');
+        });
+        document.getElementById('menuClose').addEventListener('click', function () {
+            document.getElementById('sideMenu').classList.toggle('open');
+        });
+
+        // это для мобилок 
+        document.addEventListener('DOMContentLoaded', function () {
+            var sideMenu = document.getElementById('sideMenu');
+            var startX, endX;
+
+            document.addEventListener('touchstart', function (e) {
+                startX = e.touches[0].clientX;
+            });
+
+            document.addEventListener('touchend', function (e) {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                if (endX - startX > 50) { // Если свайп вправо
+                    sideMenu.classList.add('open');
+                } else if (startX - endX > 50) { // Если свайп влево
+                    sideMenu.classList.remove('open');
+                }
+            }
+        });
+    </script>
+    <main>
+        <div class="wolf-qoute">
+            <img src="https://storage.yandexcloud.net/webber20/html/kadrylalala.png" alt="что-то умное">
+        </div>
+
+        <form class="search">
+            <div class="custom-select">
+                <div class="selected-categories" id="selectedCategories">
+                    <input onkeyup="searching(this.value)" type="text" class="search-input">
+                    <div class="options-container" id="optionsContainer">
+                    </div>
+                </div>
+                <button class="search-button" type="submit"></button>
+            </div>
+            <div class="selects">
+                <select class="select-status">
+                    <option value="0">Не выбрано</option>
+                    <option value="Готов вступить в команду">Ищет команду</option>
+                    <option value="Не ищет команду">Не ищет команду</option>
+                    <option value="В команде">Состоит в команде</option>
+                </select>
+                <select class="select-group">
+                    <option value="0">Не выбрано</option>
+                    <option value="ФТ-101">ФТ-101</option>
+                    <option value="ФТ-102">ФТ-102</option>
+                    <option value="ФТ-103">ФТ-103</option>
+                    <option value="ФТ-104">ФТ-104</option>
+                    <option value="ФТ-201">ФТ-201</option>
+                    <option value="ФТ-202">ФТ-202</option>
+                    <option value="ФТ-203">ФТ-203</option>
+                    <option value="ФТ-204">ФТ-204</option>
+                    <option value="ФТ-301">ФТ-301</option>
+                    <option value="ФТ-302">ФТ-302</option>
+                    <option value="ФТ-303">ФТ-303</option>
+                    <option value="ФТ-304">ФТ-304</option>
+                    <option value="ФТ-401">ФТ-401</option>
+                    <option value="ФТ-402">ФТ-402</option>
+                    <option value="ФТ-403">ФТ-403</option>
+                    <option value="ФТ-404">ФТ-404</option>
+                </select>
+            </div>
+        </form>
+
+        <script src="loadOptions.js">
+        </script>
+
+        <article class="results">
+            <%- list %>
+        </article>
+
+        <script type="module" src="searchStudents.js">
+        </script>
+
+        <script>
+            function getPage(tg) {
+                window.location.replace(`/lk2?tg=${tg}`)
+            }
+        </script>
+
+    </main>
+
+    <footer>
+        <section class="authors">
+            Анкеты создателей: 
+            <a href="">Сеня Л.</a>
+            <a href="">Лена П.</a>
+            <a href="">Слава С.</a>
+            <a href="">Андрей Х.</a>
+        </section>
+        <section class="year">2024 ФИИТ</section>
+    </footer>
+
+</body>
+
+</html>

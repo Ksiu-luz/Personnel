@@ -19,7 +19,7 @@ let options = [
 function searching(value) {
     keyWord = value;
     loadOptions();
-};
+}
 
 function loadOptions() {
     let e = document.querySelector('#selectedCategories #optionsContainer');
@@ -41,7 +41,7 @@ function loadOptions() {
         e.appendChild(el);
     });
 
-};
+}
 
 loadOptions();
 
