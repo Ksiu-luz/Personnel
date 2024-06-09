@@ -1,16 +1,16 @@
 function loadUsers(x) {
-    let e = document.querySelector('.results');
+    const e = document.querySelector('.results');
     e.innerHTML = '';
     x.forEach((user) => {
-        var userName = user.name;
-        var group = user.group;
-        var tg = user.tg;
-        var skills = user.skills;
-        var personalInfo = user.personalInfo;
-        var statusImgSrc =user.statusImgSrc;
-        var statusAltText = user.statusAltText;
+        const userName = user.name;
+        const group = user.group;
+        const tg = user.tg;
+        const skills = user.skills;
+        const personalInfo = user.personalInfo;
+        const statusImgSrc =user.statusImgSrc;
+        const statusAltText = user.statusAltText;
     
-        var worksheet = document.createElement('section');
+        const worksheet = document.createElement('section');
         worksheet.className = 'worksheet';
     
         worksheet.innerHTML = `
@@ -39,12 +39,12 @@ function loadUsers(x) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    var form = document.querySelector('.search');
-    var button = form.querySelector('.search-button');
-    var filter = form.querySelector('.selects');
-    var filterGroup = filter.querySelector('.select-group');
-    var filterStatus = filter.querySelector('.select-status');
-    var usersToShow = [];
+    const form = document.querySelector('.search');
+    const button = form.querySelector('.search-button');
+    const filter = form.querySelector('.selects');
+    const filterGroup = filter.querySelector('.select-group');
+    const filterStatus = filter.querySelector('.select-status');
+    let usersToShow = [];
     let users =[];
 
     function createUser(name, group, statusAltText, skills, statusImgSrc, tg, personalInfo) {
@@ -61,12 +61,12 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
     document.querySelectorAll('.worksheet').forEach((worksheet) => {
-        let name = worksheet.querySelector('.user-info').querySelector('h1').textContent;
-        let group = worksheet.querySelector('.user-info').querySelector('.group').textContent;
-        let statusAltText = worksheet.querySelector('.status-img').getAttribute('title');
-        let statusImgSrc = worksheet.querySelector('.status-img').getAttribute('src');
-        let tg = worksheet.id;
-        let personalInfo= worksheet.querySelector('.personal').textContent;
+        const name = worksheet.querySelector('.user-info').querySelector('h1').textContent;
+        const group = worksheet.querySelector('.user-info').querySelector('.group').textContent;
+        const statusAltText = worksheet.querySelector('.status-img').getAttribute('title');
+        const statusImgSrc = worksheet.querySelector('.status-img').getAttribute('src');
+        const tg = worksheet.id;
+        const personalInfo= worksheet.querySelector('.personal').textContent;
         let skills = [];
         worksheet.querySelectorAll('.skill').forEach((s) => {
             skills.push(s.textContent);
@@ -80,8 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // фильтр по группам
     filterGroup.addEventListener('change', function() {
-        var skillBlocks = document.querySelectorAll('.category');
-        var skillsSearch = [];
+        const skillBlocks = document.querySelectorAll('.category');
+        let skillsSearch = [];
         skillBlocks.forEach((block) => {
             skillsSearch.push(block.textContent);
         });
@@ -146,8 +146,8 @@ document.addEventListener('DOMContentLoaded', function() {
   
     // фильтр по статусу
     filterStatus.addEventListener('change', function() {
-        var skillBlocks = document.querySelectorAll('.category');
-        var skillsSearch = [];
+        const skillBlocks = document.querySelectorAll('.category');
+        let skillsSearch = [];
         skillBlocks.forEach((block) => {
             skillsSearch.push(block.textContent);
         });
@@ -213,8 +213,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // поиск по кнопке
     button.addEventListener('click', function(event) {
       event.preventDefault();
-        var skillBlocks = document.querySelectorAll('.category');
-        var skillsSearch = [];
+        const skillBlocks = document.querySelectorAll('.category');
+        let skillsSearch = [];
         skillBlocks.forEach((block) => {
             skillsSearch.push(block.textContent);
         });

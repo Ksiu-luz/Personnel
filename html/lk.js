@@ -7,8 +7,8 @@ document.getElementById('menuClose').addEventListener('click', function () {
 
 // это для мобилок
 document.addEventListener('DOMContentLoaded', function () {
-    var sideMenu = document.getElementById('sideMenu');
-    var startX, endX;
+    const sideMenu = document.getElementById('sideMenu');
+    let startX, endX;
 
     document.addEventListener('touchstart', function (e) {
         startX = e.touches[0].clientX;

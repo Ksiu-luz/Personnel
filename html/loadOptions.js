@@ -28,7 +28,7 @@ function searching(value) {
 }
 
 function loadOptions() {
-    let e = document.querySelector('#selectedCategories #optionsContainer');
+    const e = document.querySelector('#selectedCategories #optionsContainer');
 
     e.innerHTML = '';
 
@@ -36,7 +36,7 @@ function loadOptions() {
         option.label.trim().toLowerCase().startsWith(keyWord.trim().toLowerCase()));
 
    filterWord.forEach((option) => {
-        let el = document.createElement('div');
+        const el = document.createElement('div');
         el.classList.add("option");
         el.innerHTML = option.label;
 
