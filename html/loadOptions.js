@@ -3,16 +3,22 @@ let keyWord = '';
 // должно из базы подгружаться
 let options = [
     {value:"CSS", label:"CSS"},
-    {value:"C#", label:"C#"},
+    {value:"C# master", label:"C# master"},
     {value:"C++", label:"C++"},
     {value:"Python", label:"Python"},
-    {value:"JavaScript", label:"JavaScript"},
+    {value:"JS", label:"JS"},
     {value:"SQL", label:"SQL"},
     {value:"Docker", label:"Docker"},
     {value:"Unity", label:"Unity"},
     {value:"Design", label:"Design"},
     {value:"Оратор", label:"Оратор"},
-    {value:"HTML", label:"HTML"}
+    {value:"HTML", label:"HTML"},
+    {value:"pro-manager", label:"pro-manager"},
+    {value:"PSQL master", label:"PSQL master"},
+    {value:"прирожденный оратор", label:"прирожденный оратор"},
+    {value:"Design", label:"Design"},
+    {value:"TeamLid", label:"TeamLid"},
+    {value:"Presentation master", label:"Presentation master"}
 ];
 
 

@@ -9,7 +9,7 @@ const config = {
         "postgres://user1:rflhs777@rc1d-qb53sjksx5xp5wsl.mdb.yandexcloud.net:6432/PersonnelDB",
     ssl: {
         rejectUnauthorized: true,
-        ca: fs.readFileSync("C:/Users/user/.postgresql/root.crt")
+        ca: fs.readFileSync("C:/Users/cattu/.postgresql/root.crt")
             .toString(),
     },
 };
