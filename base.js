@@ -244,6 +244,87 @@ const findStudentsBySkills = async (skills) => {
     return result;
 }
 
+const getPasswordByStudentName = async (login) => {
+    try {
+        return (await conn.query(`SELECT password_hash FROM students WHERE telegram_contact = '@${login}' LIMIT 1`)).rows[0].password_hash;
+    } catch {
+        return 'Login not found';
+    }
+}
+//getPasswordByStudentName('serzhinho285').then((value) => console.log(value))
+
+const updateStudentGithub = async (student_id, github) => {
+    await conn.query(`UPDATE students SET github = '${github}' WHERE student_id = '${student_id}'`);
+}
+
+const updateStudentStatus = async (student_id, status) => {
+    await conn.query(`UPDATE students SET student_status = '${status}' WHERE student_id = '${student_id}'`);
+}
+
+const updateStudentTg = async (student_id, tg) => {
+    await conn.query(`UPDATE students SET telegram_contact = '${tg}' WHERE student_id = '${student_id}'`);
+}
+
+const updateStudentShortInfo = async (student_id, short_info) => {
+    await conn.query(`UPDATE students SET about_me_info_short = '${short_info}' WHERE student_id = '${student_id}'`);
+}
+
+const updateStudentInfo = async (student_id, info) => {
+    await conn.query(`UPDATE students SET about_me_info = '${info}' WHERE student_id = '${student_id}'`);
+}
+
+const updateStudentAnotherContact = async (student_id, another_contact) => {
+    // Например, почта
+    await conn.query(`UPDATE students SET another_contact = array_append(another_contact, '${another_contact}') WHERE student_id = '${student_id}'`);
+}
+
+const updateStudentExperienceInfo = async (student_id, experience_info) => {
+    await conn.query(`UPDATE students SET experience_info = array_append(experience_info, '${experience_info}') WHERE student_id = '${student_id}'`);
+}
+
+const updateStudentSkills = async (student_id, skills) => {
+    console.log(skills[1]);
+    await conn.query(`DELETE FROM student_skills WHERE student_id = '${student_id}'`);
+    for (const skill of skills) {
+        const skill_id = (await conn.query(`SELECT skill_id FROM skills WHERE skill_name = '${skill}' LIMIT 1`)).rows[0].skill_id;
+        console.log(skill_id);
+        await conn.query(`INSERT INTO student_skills (student_id, skill_id) VALUES ('${student_id}', '${skill_id}')`);
+    }
+}
+
+const deleteStudentSkill = async (student_id, skill) => {
+    const skill_id = (await conn.query(`SELECT skill_id FROM skills WHERE skill_name = '${skill}' LIMIT 1`)).rows[0].skill_id;
+    await conn.query(`DELETE FROM student_skills WHERE student_id = '${student_id}' AND skill_id = '${skill_id}'`);
+}
+//deleteStudentSkill(6, 'прирожденный оратор').then(() => console.log(0));
+
+const addStudentProject = async (student_id, project_name, project_info, project_link, role) => {
+    let project_id;
+    try {
+        const proj_id = (await conn.query(`SELECT project_id FROM projects WHERE project_name = '${project_name}' LIMIT 1`)).rows[0].project_id;
+        project_id = proj_id
+    } catch {
+        await conn.query(`INSERT INTO projects (project_name, project_info, link) VALUES ('${project_name}', '${project_info}', '${project_link}')`);
+        project_id = (await conn.query(`SELECT project_id FROM projects WHERE project_name = '${project_name}' LIMIT 1`)).rows[0].project_id;
+    }
+
+    try {
+        await conn.query(`INSERT INTO student_projects (student_id, project_id, student_role) VALUES ('${student_id}', '${project_id}', '${role}')`);
+    } catch (err) {
+        console.log('У этого студента уже есть такой проект');
+    }
+}
+//addStudentProject(6, 'Pingwin Will Win', 'Игра про пингвиненка, который на льдинах плывет к маме', '', 'Дизайнер').then((value) => console.log(2));
+
+const deleteStudentProject = async (student_id, proj_id) => {
+    await conn.query(`DELETE FROM student_projects WHERE student_id = '${student_id}' AND project_id = '${proj_id}'`);
+    const isEmptyProj = (await conn.query(`SELECT COUNT(*) FROM student_projects WHERE project_id = '${proj_id}'`));
+    if (isEmptyProj) {
+        await conn.query(`DELETE FROM projects WHERE project_id = '${proj_id}'`);
+    }
+}
+
+
 
 //getSkills().then((value) => {console.log(value.rows[0].skill_name)});
 //findUsersBySkills(['PSQL master', 'C# master']).then((value) => {console.log(value.rows)});
