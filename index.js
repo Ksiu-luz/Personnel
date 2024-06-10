@@ -78,6 +78,12 @@ app.get('/worksheets', async (req, res) => {
     await getUsers().then(x => users = x);
     res.render('worksheets', {list: users});
 });
+app.get('/settings', (req, res) => {
+    res.render('settings', {});
+});
+app.get('/exit', (req, res) => {
+    res.redirect('/login');
+});
 
 
 start();
