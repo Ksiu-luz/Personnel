@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
     document.querySelectorAll('.worksheet').forEach((worksheet) => {
         const name = worksheet.querySelector('.user-info').querySelector('h1').textContent;
-        const group = worksheet.querySelector('.user-info').querySelector('.group').textContent;
+        const group = worksheet.querySelector('.user-info').querySelector('.group').textContent.substring(3);
         const statusAltText = worksheet.querySelector('.status-img').getAttribute('title');
         const statusImgSrc = worksheet.querySelector('.status-img').getAttribute('src');
         const tg = worksheet.querySelector('.profile-info').getAttribute('id');
