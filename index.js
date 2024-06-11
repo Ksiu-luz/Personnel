@@ -1,44 +1,18 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const {getUsers} = require("./getList");
-const {findUserByTg} = require("./base");
+const cookieParser = require('cookie-parser');
+const {getHtmlUsers} = require("./getList");
+const {findUserByTg, getSkills} = require("./base");
+const {getPasswordByStudentName} = require("./base");
 const {getRawProjects} = require("./textProj");
+const {getTextSkills} = require("./getSkillsAndExp");
+const {getTextExp} = require("./getSkillsAndExp");
 
 
-// var passport = require('passport');
-// var LocalStrategy  = require('passport-local').Strategy;
-// var expressSession = require('express-session');
-// app.use(expressSession({secret: 'mySecretKey'}));
-// app.use(passport.initialize());
-// app.use(passport.session());
-//
-// passport.serializeUser(function(user, done) {
-//     done(null, user._id);
-// });
-//
-// passport.deserializeUser(function(id, done) {
-//     User.findById(id, function(err, user) {
-//         done(err, user);
-//     });
-// });
-//
-// passport.use(new LocalStrategy({
-//     usernameField: 'email',
-//     passwordField: 'password'
-// }, function(username, password,done){
-//     User.findOne({ username : username},function(err,user){
-//         return err
-//             ? done(err)
-//             : user
-//                 ? password === user.password
-//                     ? done(null, user)
-//                     : done(null, false, { message: 'Incorrect password.' })
-//                 : done(null, false, { message: 'Incorrect username.' });
-//     });
-// }));
-
-const port = 3000;
+process.env.IP = '127.0.5.35';
+process.env.PORT = 54071;
+const port = 54071;
 
 const start = () => {
     try {
@@ -53,6 +27,7 @@ app.use(express.static(__dirname + '/html'));
 app.use(express.static(__dirname + '/node_modules'));
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('views', __dirname + '/html');
@@ -64,27 +39,59 @@ app.get('/', (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login', {});
 });
-app.get('/lk', (req, res) => {
-    res.render('lk_copy', {});
+app.get('/lk', async (req, res) => {
+    if (!await check(req, res)) { res.render('login', {}); }
+    let user;
+    await findUserByTg(req.cookies.username).then(aaa => user = aaa);
+    user.pr = getRawProjects(user);
+    user.textSkills = getTextSkills(user.skills);
+    user.textExp = getTextExp(user.work_experience);
+    res.render('lk2', user);
 });
 app.get('/lk2', async (req, res) => {
+    if (!await check(req, res)) { res.render('login', {}); }
     let user;
     await findUserByTg(req.query.tg).then(aaa => user = aaa);
     user.pr = getRawProjects(user);
+    user.textSkills = getTextSkills(user.skills);
+    user.textExp = getTextExp(user.work_experience);
     res.render('lk2', user)
 });
 app.get('/worksheets', async (req, res) => {
+    if (!await check(req, res)) { res.render('login', {}); }
     let users;
-    await getUsers().then(x => users = x);
+    await getHtmlUsers().then(x => users = x);
     res.render('worksheets', {list: users});
 });
-app.get('/settings', (req, res) => {
+app.get('/settings', async (req, res) => {
+    if (!await check(req, res)) { res.render('login', {}); }
     res.render('settings', {});
 });
 app.get('/exit', (req, res) => {
+    res.clearCookie('username');
+    res.clearCookie('password');
     res.redirect('/login');
 });
+app.get('/api/login', async (req, res) => {
+    res.cookie('username', req.query.username);
+    res.cookie('password', req.query.password);
+    res.redirect('/worksheets');
+});
+async function proverka(tg, password){
+    const user = await findUserByTg(tg);
+    if (!user) {
+        return false;
+    }
+    const correctPassword = await getPasswordByStudentName(user.tg);
+    return correctPassword === password;
+}
+async function check(req, res){
+    if (!req.cookies.username || !req.cookies.password){
+        return false;
+    }
+    return await proverka(req.cookies.username, req.cookies.password);
+
+}
 
 
 start();
-

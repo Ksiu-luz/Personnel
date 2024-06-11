@@ -90,7 +90,7 @@
             <ul>
                 <li id="tg">Телеграм: <%= tg %></li>
                 <li id="git">Github: <%= github %></li>
-                <li><button id="contact">Связаться</button></li>
+                <li><button id="contact" onclick="goToTg()">Связаться</button></li>
             </ul>
         </address>
     </section>
@@ -100,29 +100,12 @@
                 <h2 class="chapter">Проекты</h2>
                 <div class="in-data" id="projects">
                     <%- pr %>
-                    <div class="proj">
-                        <h2 id="proj-name">Personnel</h2>
-                        <span id="proj-role" class="proj-role">test-engineer</span>
-                        <span id="proj-descripton" class="proj-descripton">Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit.
-                                Accusamus officiis quam perferendis commodi dolorum esse illo amet deleniti
-                                exercitationem incidunt!</span>
-                        <button class="proj-button">посмотреть</button>
-                    </div>
-                    <div class="proj">
-                        <h2 id="proj-name">Personnel</h2>
-                        <span id="proj-role" class="proj-role">test-engineer</span>
-                        <span id="proj-descripton" class="proj-descripton">Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit.
-                                Accusamus officiis quam perferendis commodi dolorum esse illo amet deleniti
-                                exercitationem incidunt!</span>
-                        <button class="proj-button">посмотреть</button>
-                    </div>
                 </div>
             </section>
             <section class="skills">
                 <h2 class="chapter">Навыки</h2>
                 <ul id="navyki">
+                    <%- textSkills %>
                 </ul>
             </section>
         </article>
@@ -131,6 +114,7 @@
             <section class="experience">
                 <h2 class="chapter">Опыт работы</h2>
                 <ul class="in-additional" id="opyt">
+                    <%- textExp %>
                 </ul>
             </section>
             <section class="personal">
@@ -142,6 +126,12 @@
         </article>
     </section>
 
+    <script>
+        function goToTg(){
+            let tg = document.getElementById('tg').innerHTML.substring(11);
+            window.open(`https://t.me/${tg}`);
+        }
+    </script>
     <script src="lk2.js">
     </script>
 </main>

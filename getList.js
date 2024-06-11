@@ -1,16 +1,17 @@
-const gettt = require("./base");
+const {getStatusImageByStatus} = require("./base");
+const {getUsers} = require("./base");
 
-async function getUsers() {
+async function getHtmlUsers() {
     let users;
-    await gettt.getUsers().then((value) => {users = value});
+    await getUsers().then((value) => {users = value});
     let result = '';
-    await users.forEach((user) => {
+    await users.forEach(async (user) => {
         let userName = user.userName;
         let group = user.group;
         let tg = user.tg;
         let skills = user.skills;
         let personalInfo = user.personalInfo;
-        let statusImgSrc = getStatusImageByStatus(user.student_status);
+        let statusImgSrc = user.statusImageSrc;
         let statusAltText = user.statusAltText;
 
         result += `
@@ -35,20 +36,9 @@ async function getUsers() {
         </section>
         </section>
       `;
-    });
+    }, {});
 
     return result;
-};
-
-const getStatusImageByStatus = (student_status) => {
-    if (student_status === 'Готов вступить в команду') {
-        return 'images/status/status1.svg';
-    }
-    if (student_status === 'В команде') {
-        return 'images/status/status3.svg'
-    }
-
-    return 'images/status/status2.svg'
 }
 
-module.exports.getUsers = getUsers;
+module.exports.getHtmlUsers = getHtmlUsers;

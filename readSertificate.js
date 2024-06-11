@@ -1,7 +1,7 @@
-const fs = require("fs");
-
-var srcBD = fs
-.readFileSync("C:/Users/sulta/.postgresql/root.crt")
-.toString();
-
-export { srcBD };
+// const fs = require("fs");
+//
+// var srcBD = fs
+// .readFileSync("https://storage.yandexcloud.net/webber20/root.crt")
+// .toString();
+//
+// export { srcBD };

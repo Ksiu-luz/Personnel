@@ -7,7 +7,7 @@ function loadUsers(x) {
         const tg = user.tg;
         const skills = user.skills;
         const personalInfo = user.personalInfo;
-        const statusImgSrc =user.statusImgSrc;
+        const statusImgSrc =user.statusImageSrc;
         const statusAltText = user.statusAltText;
     
         const worksheet = document.createElement('section');
@@ -65,12 +65,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const group = worksheet.querySelector('.user-info').querySelector('.group').textContent;
         const statusAltText = worksheet.querySelector('.status-img').getAttribute('title');
         const statusImgSrc = worksheet.querySelector('.status-img').getAttribute('src');
-        const tg = worksheet.id;
+        const tg = worksheet.querySelector('.profile-info').getAttribute('id');
         const personalInfo= worksheet.querySelector('.personal').textContent;
         let skills = [];
         worksheet.querySelectorAll('.skill').forEach((s) => {
             skills.push(s.textContent);
-        });;
+        });
         users.push(createUser(name, group, statusAltText, skills, statusImgSrc, tg, personalInfo));
     });
    

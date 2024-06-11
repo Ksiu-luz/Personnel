@@ -1,6 +1,8 @@
+const {getProjectsByStudentId} = require("./base");
+
 
 function getRawProjects(user) {
-    if ('projects' in user) {
+    if (!('projects' in user)) {
         return '';
     }
     let result = '';
