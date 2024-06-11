@@ -7,7 +7,7 @@ async function getHtmlUsers() {
     let result = '';
     await users.forEach(async (user) => {
         let userName = user.userName;
-        let group = user.grp;
+        let grp = user.grp;
         let tg = user.tg;
         let skills = user.skills;
         let personalInfo = user.personalInfo;
@@ -23,7 +23,7 @@ async function getHtmlUsers() {
               <div class="info">
                 <div class="user-info">
                   <h1>${userName}</h1>
-                  <p class="group">ФТ-${group}</p>
+                  <p class="group">${grp}</p>
                   <div class="skills">
                     ${skills.map(skill => `<div class="skill">${skill}</div>`).join('')}
                   </div>

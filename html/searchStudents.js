@@ -3,7 +3,7 @@ function loadUsers(x) {
     e.innerHTML = '';
     x.forEach((user) => {
         const userName = user.name;
-        const group = user.group;
+        const group = user.gr;
         const tg = user.tg;
         const skills = user.skills;
         const personalInfo = user.personalInfo;
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function createUser(name, group, statusAltText, skills, statusImgSrc, tg, personalInfo) {
         let user = {
             name: name,
-            group: group,
+            gr: group,
             statusImgSrc: statusImgSrc,
             statusAltText: statusAltText,
             tg: tg,
@@ -95,24 +95,24 @@ document.addEventListener('DOMContentLoaded', function() {
             if (status !== '0'){
                 if (skills.length !== 0){
                     usersToShow = users.filter(user =>
-                        (user.group === group && user.statusAltText === status && skills.some(skill => user.skills.includes(skill)))
+                        (user.gr === group && user.statusAltText === status && skills.some(skill => user.skills.includes(skill)))
                     );
                 }
                 else{
                     usersToShow = users.filter(user =>
-                        (user.group === group && user.statusAltText === status)
+                        (user.gr === group && user.statusAltText === status)
                     );
                 }
             }
             else {
                 if (skills.length > 0){
                     usersToShow = users.filter(user =>
-                        (user.group === group && skills.some(skill => user.skills.includes(skill)))
+                        (user.gr === group && skills.some(skill => user.skills.includes(skill)))
                     );
                 }
                 else{
                     usersToShow = users.filter(user =>
-                        (user.group === group)
+                        (user.gr === group)
                     );
                 }
             }
@@ -161,24 +161,24 @@ document.addEventListener('DOMContentLoaded', function() {
             if (status !== '0'){
                 if (skills.length > 0){
                     usersToShow = users.filter(user =>
-                        (user.group === group && user.statusAltText === status && skills.some(skill => user.skills.includes(skill)))
+                        (user.gr === group && user.statusAltText === status && skills.some(skill => user.skills.includes(skill)))
                     );
                 }
                 else{
                     usersToShow = users.filter(user =>
-                        (user.group === group && user.statusAltText === status)
+                        (user.gr === group && user.statusAltText === status)
                     );
                 }
             }
             else {
                 if (skills.length > 0){
                     usersToShow = users.filter(user =>
-                        (user.group === group && skills.some(skill => user.skills.includes(skill)))
+                        (user.gr === group && skills.some(skill => user.skills.includes(skill)))
                     );
                 }
                 else{
                     usersToShow = users.filter(user =>
-                        (user.group === group)
+                        (user.gr === group)
                     );
                 }
             }
@@ -263,24 +263,24 @@ document.addEventListener('DOMContentLoaded', function() {
             if (status !== '0'){
                 if (skills.length > 0){
                     usersToShow = users.filter(user =>
-                        (user.group === group && user.statusAltText === status && skills.some(skill => user.skills.includes(skill)))
+                        (user.gr === group && user.statusAltText === status && skills.some(skill => user.skills.includes(skill)))
                     );
                 }
                 else{
                     usersToShow = users.filter(user =>
-                        (user.group === group && user.statusAltText === status)
+                        (user.gr === group && user.statusAltText === status)
                     );
                 }
             }
             else {
                 if (skills.length > 0){
                     usersToShow = users.filter(user =>
-                        (user.group === group && skills.some(skill => user.skills.includes(skill)))
+                        (user.gr === group && skills.some(skill => user.skills.includes(skill)))
                     );
                 }
                 else{
                     usersToShow = users.filter(user =>
-                        (user.group === group)
+                        (user.gr === group)
                     );
                 }
             }
