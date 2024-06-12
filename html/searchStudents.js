@@ -12,28 +12,74 @@ function loadUsers(x) {
     
         const worksheet = document.createElement('section');
         worksheet.className = 'worksheet';
-    
-        worksheet.innerHTML = `
-          <section id=${tg} onclick="getPage(this.id)" class="profile-info">
-            <div class="block">
-              <img src="images/avatar.jpg" alt="Фото" class="profile-img">
-              <article class="user">
-                <div class="info">
-                  <div class="user-info">
-                    <h1>${userName}</h1>
-                    <p class="group">${group}</p>
-                    <div class="skills">
-                      ${skills.map(skill => `<div class="skill">${skill}</div>`).join('')}
-                    </div>
-                  </div>
-                  <p class="personal">${personalInfo}</p>
-                </div>
-              </article>
-            </div>
-            <img src="${statusImgSrc}" alt="${statusAltText}" class="status-img" title="${statusAltText}">
-          </section>
-        `;
-          e.appendChild(worksheet);
+        const section = document.createElement('section');
+        section.id = tg;
+        section.onclick = function() {
+        getPage(this.id);
+        };
+        section.classList.add('profile-info');
+
+        const block = document.createElement('div');
+        block.classList.add('block');
+
+        const image = document.createElement('img');
+        image.src = 'images/avatar.jpg';
+        image.alt = 'Фото';
+        image.classList.add('profile-img');
+
+        const article = document.createElement('article');
+        article.classList.add('user');
+
+        const infoDiv = document.createElement('div');
+        infoDiv.classList.add('info');
+
+        const userDiv = document.createElement('div');
+        userDiv.classList.add('user-info');
+
+        const heading = document.createElement('h1');
+        heading.textContent = userName;
+
+        const groupParagraph = document.createElement('p');
+        groupParagraph.classList.add('group');
+        groupParagraph.textContent = group;
+
+        const skillsDiv = document.createElement('div');
+        skillsDiv.classList.add('skills');
+        skills.forEach(skill => {
+        const skillDiv = document.createElement('div');
+        skillDiv.classList.add('skill');
+        skillDiv.textContent = skill;
+        skillsDiv.appendChild(skillDiv);
+        });
+
+        const personalParagraph = document.createElement('p');
+        personalParagraph.classList.add('personal');
+        personalParagraph.textContent = personalInfo;
+
+        const statusImage = document.createElement('img');
+        statusImage.src = statusImgSrc;
+        statusImage.alt = statusAltText;
+        statusImage.classList.add('status-img');
+        statusImage.title = statusAltText;
+
+        userDiv.appendChild(heading);
+        userDiv.appendChild(groupParagraph);
+        userDiv.appendChild(skillsDiv);
+
+        infoDiv.appendChild(userDiv);
+        infoDiv.appendChild(personalParagraph);
+
+        article.appendChild(infoDiv);
+
+        block.appendChild(image);
+        block.appendChild(article);
+
+        section.appendChild(block);
+        section.appendChild(statusImage);
+
+        worksheet.appendChild(section);
+
+        e.appendChild(worksheet);
       });
   };
 
@@ -218,39 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
         skillBlocks.forEach((block) => {
             skillsSearch.push(block.textContent);
         });
-      // var inp = document.querySelector('#selectedCategories input').value;
-      // var skillBlocks = document.querySelectorAll('.category');
-      // var skillsSearch = [];
-      // var final = [];
-      // var names = [];
-      //   localStorage.getItem('usersToShow');
-      //
-      //
-      // // поиск по имени(в разработке)
-      // names = users.filter(user =>
-      //   (user.userName.trim().includes(inp))
-      // );
-      //
-      //
-      // // поиск по скилам
-      // skillBlocks.forEach((block) => {
-      //   skillsSearch.push(block.textContent);
-      // });
-      //
-      // if (skillBlocks.length > 0) {
-      //     usersToShow.forEach((user) => {
-      //         if (skillsSearch.some(skill => user.skills.includes(skill))) {
-      //             final.push(user);
-      //         }
-      //     });
-      //     usersToShow = final;
-      // }
-      // else {
-      //     usersToShow = users;
-      // }
-      //   localStorage.setItem('skills', skillsSearch);
-      //
-      // loadUsers(usersToShow);
+    
 
         localStorage.setItem('group', filterGroup.value.toString());
         localStorage.setItem('status', filterStatus.value.toString());
