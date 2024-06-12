@@ -3,7 +3,7 @@ const pg = require("pg");
 const fs = require("fs");
 const url = require("url");
 
-const password = "rflhs777"
+const password = "shlfR777"
 
 
 let fff = `-----BEGIN CERTIFICATE-----
@@ -68,7 +68,7 @@ LpuQKbSbIERsmR+QqQ==
 
 const config = {
     connectionString:
-        "postgres://user1:rflhs777@rc1d-qb53sjksx5xp5wsl.mdb.yandexcloud.net:6432/PersonnelDB",
+        "postgres://user1:shlfR777@rc1d-qb53sjksx5xp5wsl.mdb.yandexcloud.net:6432/PersonnelDB",
     ssl: {
         rejectUnauthorized: true,
         ca: fff,

@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // фильтр по группам
     filterGroup.addEventListener('change', function() {
-        const skillBlocks = document.querySelectorAll('.category');
+        let skillBlocks = document.querySelectorAll('.category');
         let skillsSearch = [];
         skillBlocks.forEach((block) => {
             skillsSearch.push(block.textContent);
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
     // фильтр по статусу
     filterStatus.addEventListener('change', function() {
-        const skillBlocks = document.querySelectorAll('.category');
+        let skillBlocks = document.querySelectorAll('.category');
         let skillsSearch = [];
         skillBlocks.forEach((block) => {
             skillsSearch.push(block.textContent);
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // поиск по кнопке
     button.addEventListener('click', function(event) {
       event.preventDefault();
-        const skillBlocks = document.querySelectorAll('.category');
+        let skillBlocks = document.querySelectorAll('.category');
         let skillsSearch = [];
         skillBlocks.forEach((block) => {
             skillsSearch.push(block.textContent);
