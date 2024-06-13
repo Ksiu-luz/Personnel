@@ -1,5 +1,19 @@
-const {getStatusImageByStatus} = require("./base");
 const {getUsers} = require("./base");
+
+function getTextSkills(skills) {
+    let result = '';
+    for (const skill of skills) {
+        result += `<li>${skill}</li>`;
+    }
+    return result;
+}
+function getTextExp(exps) {
+    let result = '';
+    for (const exp of exps) {
+        result += `<li>${exp}</li>`;
+    }
+    return result;
+}
 
 async function getHtmlUsers() {
     let users;
@@ -41,4 +55,25 @@ async function getHtmlUsers() {
     return result;
 }
 
+function getRawProjects(user) {
+    if (!('projects' in user)) {
+        return '';
+    }
+    let result = '';
+    for (const p of user.projects) {
+        result += `
+            <div class="proj">
+            <h2 id="proj-name">${p.project_name}</h2>
+            <span id="proj-role" class="proj-role">${p.role}</span>
+            <span id="proj-descripton" class="proj-descripton">${p.description}</span>
+            <button class="proj-button">посмотреть</button>
+            </div>
+        `;
+    }
+    return result;
+}
+
+module.exports.getTextSkills = getTextSkills;
+module.exports.getTextExp = getTextExp;
 module.exports.getHtmlUsers = getHtmlUsers;
+module.exports.getRawProjects = getRawProjects;

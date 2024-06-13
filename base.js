@@ -1,9 +1,5 @@
 "use strict";
 const pg = require("pg");
-const fs = require("fs");
-const url = require("url");
-
-const password = "shlfR777"
 
 
 let fff = `-----BEGIN CERTIFICATE-----
@@ -113,8 +109,7 @@ const packData = async (data) =>{
 }
 
 const findStudentsByName = async (student_name) => {
-    const result = await conn.query(`SELECT * FROM students WHERE student_name = '${student_name}'`);
-    return result;
+    return await conn.query(`SELECT * FROM students WHERE student_name = '${student_name}'`);
 }
 
 
@@ -130,8 +125,7 @@ const getStatusImageByStatus = (student_status) => {
 }
 
 const getProjectIdsAndRolesByStudentId = async (student_id) => {
-    const result = await conn.query(`SELECT project_id, student_role FROM student_projects WHERE student_id = '${student_id}'`);
-    return result;
+    return await conn.query(`SELECT project_id, student_role FROM student_projects WHERE student_id = '${student_id}'`);
 }
 
 const getProjectsByStudentId = async (student_id) => {
@@ -151,13 +145,11 @@ const getProjectsByStudentId = async (student_id) => {
 }
 
 const getSkills = async () => {
-    const result = await conn.query(`SELECT skill_name FROM skills`);
-    return result;
+    return await conn.query(`SELECT skill_name FROM skills`);
 }
 
 const getSkillsIdsByStudentId = async (student_id) => {
-    const result = await conn.query(`SELECT skill_id FROM student_skills WHERE student_id = '${student_id}'`);
-    return result;
+    return await conn.query(`SELECT skill_id FROM student_skills WHERE student_id = '${student_id}'`);
 }
 
 const getStudentSkills = async (student_id) => {
@@ -181,13 +173,11 @@ const getGroupByGroupId = async (group_id) => {
 }
 
 const findStudentsByStatus = async (student_status) => {
-    const result = await conn.query(`SELECT * FROM students WHERE status = '${student_status}'`);
-    return result;
+    return await conn.query(`SELECT * FROM students WHERE status = '${student_status}'`);
 }
 
 const findStudentsIdsBySkill = async (skill_name) => {
-    const result = await conn.query(`SELECT student_id FROM student_skills WHERE skill_id = (SELECT skill_id FROM skills WHERE skill_name = '${skill_name}')`);
-    return result;
+    return await conn.query(`SELECT student_id FROM student_skills WHERE skill_id = (SELECT skill_id FROM skills WHERE skill_name = '${skill_name}')`);
 }
 
 const getStudentsIdsBySkill = async (skill_name) => {
@@ -201,23 +191,19 @@ const getStudentsIdsBySkill = async (skill_name) => {
 }
 
 const findStudentsByGroup = async (student_group) => {
-    const result = await conn.query(`SELECT * FROM students WHERE group_id = (SELECT group_id FROM groups WHERE group_num = '${student_group}')`);
-    return result;
+    return await conn.query(`SELECT * FROM students WHERE group_id = (SELECT group_id FROM groups WHERE group_num = '${student_group}')`);
 }
 
 const findUsersByName = async (student_name) => {
-    const result = await conn.query(`SELECT * FROM students WHERE student_name = '${student_name}'`);
-    return result;
+    return await conn.query(`SELECT * FROM students WHERE student_name = '${student_name}'`);
 }
 
 const findUsersByGroup = async (student_group) => {
-    const result = await conn.query(`SELECT * FROM students WHERE group_id = (SELECT group_id FROM groups WHERE group_num = '${student_group}')`);
-    return result;
+    return await conn.query(`SELECT * FROM students WHERE group_id = (SELECT group_id FROM groups WHERE group_num = '${student_group}')`);
 }
 
 const findUsersByStatus = async (student_status) => {
-    const result = await conn.query(`SELECT * FROM students WHERE status = '${student_status}'`);
-    return result;
+    return await conn.query(`SELECT * FROM students WHERE status = '${student_status}'`);
 }
 
 const findUserByTg = async (tg) => {
@@ -230,24 +216,22 @@ const findUserByTg = async (tg) => {
     const student_group = await getGroupByGroupId(student.group_id);
     const statusImage = await getStatusImageByStatus(student.student_status);
     const studentProjects = await getProjectsByStudentId(student.student_id);
-    let packedStudent = {
-        userName : student.student_name,
-        tg : student.telegram_contact,
-        github : student.github,
-        grp : student_group,
-        skills : student_skills,
-        personalInfo : student.about_me_info_short,
-        statusImageSrc : statusImage,
-        statusAltText : student.student_status,
-        work_experience : student.experience_info,
-        projects : studentProjects
+    return {
+        userName: student.student_name,
+        tg: student.telegram_contact,
+        github: student.github,
+        grp: student_group,
+        skills: student_skills,
+        personalInfo: student.about_me_info_short,
+        statusImageSrc: statusImage,
+        statusAltText: student.student_status,
+        work_experience: student.experience_info,
+        projects: studentProjects
     };
-    return packedStudent;
 }
 
 const findUsersIdsBySkill = async (skill_name) => {
-    const result = await conn.query(`SELECT student_id FROM student_skills WHERE skill_id = (SELECT skill_id FROM skills WHERE skill_name = '${skill_name}')`);
-    return result;
+    return await conn.query(`SELECT student_id FROM student_skills WHERE skill_id = (SELECT skill_id FROM skills WHERE skill_name = '${skill_name}')`);
 }
 
 const getUsersIdsBySkill = async (skill_name) => {
@@ -277,8 +261,7 @@ const findUsersBySkills = async (skills) => {
     }
 
     const query = 'SELECT * FROM students WHERE student_id = ANY($1)';
-    const result = await conn.query(query, [usersIds]);
-    return result;
+    return await conn.query(query, [usersIds]);
 }
 
 const findStudentsBySkills = async (skills) => {
@@ -314,7 +297,6 @@ const getPasswordByStudentName = async (login) => {
         return 'Login not found';
     }
 }
-//getPasswordByStudentName('serzhinho285').then((value) => console.log(value))
 
 const updateStudentGithub = async (student_id, github) => {
     await conn.query(`UPDATE students SET github = '${github}' WHERE student_id = '${student_id}'`);

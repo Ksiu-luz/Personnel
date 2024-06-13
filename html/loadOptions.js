@@ -1,6 +1,5 @@
 let keyWord = '';
 
-// должно из базы подгружаться
 let options = [
     {value:"CSS", label:"CSS"},
     {value:"C# master", label:"C# master"},

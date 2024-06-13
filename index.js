@@ -2,12 +2,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const {getHtmlUsers} = require("./getList");
+const {getHtmlUsers} = require("./getTextHtml");
 const {findUserByTg, getSkills} = require("./base");
 const {getPasswordByStudentName} = require("./base");
-const {getRawProjects} = require("./textProj");
-const {getTextSkills} = require("./getSkillsAndExp");
-const {getTextExp} = require("./getSkillsAndExp");
+const {getRawProjects} = require("./getTextHtml");
+const {getTextSkills} = require("./getTextHtml");
+const {getTextExp} = require("./getTextHtml");
 
 
 process.env.IP = '127.0.5.35';
@@ -29,9 +29,9 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.set('views', __dirname + '/html');
 app.set('view engine', 'ejs');
+
 
 app.get('/', (req, res) => {
     res.redirect('/login');
@@ -77,7 +77,8 @@ app.get('/api/login', async (req, res) => {
     res.cookie('password', req.query.password);
     res.redirect('/worksheets');
 });
-async function proverka(tg, password){
+
+async function verification(tg, password){
     const user = await findUserByTg(tg);
     if (!user) {
         return false;
@@ -89,8 +90,7 @@ async function check(req, res){
     if (!req.cookies.username || !req.cookies.password){
         return false;
     }
-    return await proverka(req.cookies.username, req.cookies.password);
-
+    return await verification(req.cookies.username, req.cookies.password);
 }
 
 
