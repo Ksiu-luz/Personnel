@@ -322,6 +322,7 @@ footer {
     border-radius: 10px;
     top: 100%; /* Позиционируем список категорий под .selected-categories */
     left: 0; /* Выравниваем список категорий по левому краю .custom-select */
+    z-index: 100;
 }
 
 .option {

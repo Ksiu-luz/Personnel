@@ -112,7 +112,6 @@ const findStudentsByName = async (student_name) => {
     return await conn.query(`SELECT * FROM students WHERE student_name = '${student_name}'`);
 }
 
-
 const getStatusImageByStatus = (student_status) => {
     if (student_status === 'Готов вступить в команду') {
         return 'images/status/status1.svg';
@@ -120,7 +119,6 @@ const getStatusImageByStatus = (student_status) => {
     if (student_status === 'В команде') {
         return 'images/status/status3.svg'
     }
-
     return 'images/status/status2.svg'
 }
 
@@ -290,7 +288,7 @@ const findStudentsBySkills = async (skills) => {
     return result;
 }
 
-const getPasswordByStudentName = async (login) => {
+const findPasswordByTg = async (login) => {
     try {
         return (await conn.query(`SELECT password_hash FROM students WHERE telegram_contact = '${login}' LIMIT 1`)).rows[0].password_hash;
     } catch {
@@ -341,7 +339,6 @@ const deleteStudentSkill = async (student_id, skill) => {
     const skill_id = (await conn.query(`SELECT skill_id FROM skills WHERE skill_name = '${skill}' LIMIT 1`)).rows[0].skill_id;
     await conn.query(`DELETE FROM student_skills WHERE student_id = '${student_id}' AND skill_id = '${skill_id}'`);
 }
-//deleteStudentSkill(6, 'прирожденный оратор').then(() => console.log(0));
 
 const addStudentProject = async (student_id, project_name, project_info, project_link, role) => {
     let project_id;
@@ -358,7 +355,6 @@ const addStudentProject = async (student_id, project_name, project_info, project
         console.log('У этого студента уже есть такой проект');
     }
 }
-//addStudentProject(6, 'Pingwin Will Win', 'Игра про пингвиненка, который на льдинах плывет к маме', '', 'Дизайнер').then((value) => console.log(2));
 
 const deleteStudentProject = async (student_id, proj_id) => {
     await conn.query(`DELETE FROM student_projects WHERE student_id = '${student_id}' AND project_id = '${proj_id}'`);
@@ -368,14 +364,10 @@ const deleteStudentProject = async (student_id, proj_id) => {
     }
 }
 
-
-
-//getSkills().then((value) => {console.log(value.rows[0].skill_name)});
-//findUsersBySkills(['PSQL master', 'C# master']).then((value) => {console.log(value.rows)});
-
 exports.getUsers = getUsers;
 exports.findUsersByName = findUsersByName;
 exports.findUserByTg = findUserByTg;
+exports.getPasswordByTg = findPasswordByTg;
 exports.findUsersByGroup = findUsersByGroup;
 exports.findUsersByStatus = findUsersByStatus;
 exports.findUsersBySkills = findUsersBySkills;
@@ -386,7 +378,6 @@ exports.findStudentsByGroup = findStudentsByGroup;
 exports.findStudentsByStatus = findStudentsByStatus;
 exports.findStudentsBySkills = findStudentsBySkills;
 exports.getSkills = getSkills;
-exports.getPasswordByStudentName = getPasswordByStudentName;
 exports.addStudentProject = addStudentProject;
 exports.deleteStudentProject = deleteStudentProject;
 exports.deleteStudentSkill = deleteStudentSkill;
