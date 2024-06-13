@@ -72,7 +72,6 @@ button:hover {
         align-items: center;
         height: 100%;
         margin: 0;
-        /* box-sizing: border-box; */
     }
 
     .login-container {

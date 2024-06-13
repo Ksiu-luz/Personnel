@@ -3,8 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const {getHtmlUsers, getRawProjects, getTextSkills, getTextExp} = require("./getTextHtml");
-const {findUserByTg, getPasswordByStudentName} = require("./base");
-
+const {findUserByTg, getPasswordByTg} = require("./base");
 
 process.env.IP = '127.0.5.35';
 process.env.PORT = 54071;
@@ -12,7 +11,7 @@ const port = 54071;
 
 const start = () => {
     try {
-        app.listen(port, () => console.log(`Сервер запущен http://localhost:${port}`))
+        app.listen(port, () => console.log(`Сервер запущен на порту ${port}`))
     } catch (err) {
         console.log(err);
     }
@@ -28,7 +27,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('views', __dirname + '/html');
 app.set('view engine', 'ejs');
 
-
 app.get('/', (req, res) => {
     res.redirect('/login');
 });
@@ -36,7 +34,7 @@ app.get('/login', (req, res) => {
     res.render('login', {});
 });
 app.get('/lk', async (req, res) => {
-    if (!await check(req)) { res.render('login', {}); }
+    if (!await checkCookies(req)) { res.render('login', {}); }
     let user;
     await findUserByTg(req.cookies.username).then(aaa => user = aaa);
     user.pr = getRawProjects(user);
@@ -45,7 +43,7 @@ app.get('/lk', async (req, res) => {
     res.render('lk2', user);
 });
 app.get('/lk2', async (req, res) => {
-    if (!await check(req)) { res.render('login', {}); }
+    if (!await checkCookies(req)) { res.render('login', {}); }
     let user;
     await findUserByTg(req.query.tg).then(aaa => user = aaa);
     user.pr = getRawProjects(user);
@@ -54,13 +52,13 @@ app.get('/lk2', async (req, res) => {
     res.render('lk2', user)
 });
 app.get('/worksheets', async (req, res) => {
-    if (!await check(req)) { res.render('login', {}); }
+    if (!await checkCookies(req)) { res.render('login', {}); }
     let users;
     await getHtmlUsers().then(x => users = x);
     res.render('worksheets', {list: users});
 });
 app.get('/settings', async (req, res) => {
-    if (!await check(req)) { res.render('login', {}); }
+    if (!await checkCookies(req)) { res.render('login', {}); }
     res.render('settings', {});
 });
 app.get('/exit', (req, res) => {
@@ -74,20 +72,19 @@ app.get('/api/login', async (req, res) => {
     res.redirect('/worksheets');
 });
 
-async function verification(tg, password){
+async function tryAuth(tg, password){
     const user = await findUserByTg(tg);
     if (!user) {
         return false;
     }
-    const correctPassword = await getPasswordByStudentName(user.tg);
+    const correctPassword = await getPasswordByTg(user.tg);
     return correctPassword === password;
 }
-async function check(req){
+async function checkCookies(req){
     if (!req.cookies.username || !req.cookies.password){
         return false;
     }
-    return await verification(req.cookies.username, req.cookies.password);
+    return await tryAuth(req.cookies.username, req.cookies.password);
 }
-
 
 start();

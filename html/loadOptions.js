@@ -1,5 +1,6 @@
 let keyWord = '';
 
+// должно из базы подгружаться
 let options = [
     {value:"CSS", label:"CSS"},
     {value:"C# master", label:"C# master"},
@@ -31,7 +32,7 @@ function loadOptions() {
 
     e.innerHTML = '';
 
-    let filterWord = keyWord === '' ? options:options.filter((option) =>
+    let filterWord = keyWord == '' ? options:options.filter((option) => 
         option.label.trim().toLowerCase().startsWith(keyWord.trim().toLowerCase()));
 
    filterWord.forEach((option) => {
