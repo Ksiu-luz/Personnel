@@ -81,7 +81,7 @@ function loadUsers(x) {
 
         e.appendChild(worksheet);
       });
-  };
+  }
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let users =[];
 
     function createUser(name, group, statusAltText, skills, statusImgSrc, tg, personalInfo) {
-        let user = {
+        return {
             name: name,
             gr: group,
             statusImgSrc: statusImgSrc,
@@ -103,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
             personalInfo: personalInfo,
             skills: skills
         };
-        return user;
       }
       
     document.querySelectorAll('.worksheet').forEach((worksheet) => {
