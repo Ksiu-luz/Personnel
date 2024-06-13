@@ -346,8 +346,7 @@ const deleteStudentSkill = async (student_id, skill) => {
 const addStudentProject = async (student_id, project_name, project_info, project_link, role) => {
     let project_id;
     try {
-        const proj_id = (await conn.query(`SELECT project_id FROM projects WHERE project_name = '${project_name}' LIMIT 1`)).rows[0].project_id;
-        project_id = proj_id
+        project_id = (await conn.query(`SELECT project_id FROM projects WHERE project_name = '${project_name}' LIMIT 1`)).rows[0].project_id
     } catch {
         await conn.query(`INSERT INTO projects (project_name, project_info, link) VALUES ('${project_name}', '${project_info}', '${project_link}')`);
         project_id = (await conn.query(`SELECT project_id FROM projects WHERE project_name = '${project_name}' LIMIT 1`)).rows[0].project_id;

@@ -2,12 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const {getHtmlUsers} = require("./getTextHtml");
-const {findUserByTg, getSkills} = require("./base");
-const {getPasswordByStudentName} = require("./base");
-const {getRawProjects} = require("./getTextHtml");
-const {getTextSkills} = require("./getTextHtml");
-const {getTextExp} = require("./getTextHtml");
+const {getHtmlUsers, getRawProjects, getTextSkills, getTextExp} = require("./getTextHtml");
+const {findUserByTg, getPasswordByStudentName} = require("./base");
 
 
 process.env.IP = '127.0.5.35';
@@ -40,7 +36,7 @@ app.get('/login', (req, res) => {
     res.render('login', {});
 });
 app.get('/lk', async (req, res) => {
-    if (!await check(req, res)) { res.render('login', {}); }
+    if (!await check(req)) { res.render('login', {}); }
     let user;
     await findUserByTg(req.cookies.username).then(aaa => user = aaa);
     user.pr = getRawProjects(user);
@@ -49,7 +45,7 @@ app.get('/lk', async (req, res) => {
     res.render('lk2', user);
 });
 app.get('/lk2', async (req, res) => {
-    if (!await check(req, res)) { res.render('login', {}); }
+    if (!await check(req)) { res.render('login', {}); }
     let user;
     await findUserByTg(req.query.tg).then(aaa => user = aaa);
     user.pr = getRawProjects(user);
@@ -58,13 +54,13 @@ app.get('/lk2', async (req, res) => {
     res.render('lk2', user)
 });
 app.get('/worksheets', async (req, res) => {
-    if (!await check(req, res)) { res.render('login', {}); }
+    if (!await check(req)) { res.render('login', {}); }
     let users;
     await getHtmlUsers().then(x => users = x);
     res.render('worksheets', {list: users});
 });
 app.get('/settings', async (req, res) => {
-    if (!await check(req, res)) { res.render('login', {}); }
+    if (!await check(req)) { res.render('login', {}); }
     res.render('settings', {});
 });
 app.get('/exit', (req, res) => {
@@ -86,7 +82,7 @@ async function verification(tg, password){
     const correctPassword = await getPasswordByStudentName(user.tg);
     return correctPassword === password;
 }
-async function check(req, res){
+async function check(req){
     if (!req.cookies.username || !req.cookies.password){
         return false;
     }
