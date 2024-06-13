@@ -6,7 +6,7 @@ const {getHtmlUsers, getRawProjects, getTextSkills, getTextExp} = require("./get
 const {findUserByTg, getPasswordByTg} = require("./base");
 
 process.env.IP = '127.0.5.35';
-process.env.PORT = 54071;
+process.env.PORT = '54071';
 const port = 54071;
 
 const start = () => {
